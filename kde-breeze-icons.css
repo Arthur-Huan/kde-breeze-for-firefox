@@ -1,0 +1,170 @@
+/* This currently doesn't work because Firefox doesn't color in locally loaded SVGs */
+* .toolbarbutton-icon {
+    fill: currentColor !important;
+    -moz-context-properties: fill !important;
+}
+
+
+#PanelUI-menu-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/application-menu.svg") !important;
+    padding: 0 !important;
+    height: 22px !important;
+    width: 22px !important;
+}
+
+#unified-extensions-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/preferences/32/yast-addon.svg") !important;
+    padding: 6px !important;
+}
+
+#back-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/draw-arrow-back-symbolic.svg") !important;
+}
+
+#forward-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/draw-arrow-forward-symbolic.svg") !important;
+}
+
+#reload-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/view-refresh.svg") !important;
+}
+#stop-reload-button[stop] .toolbarbutton-icon,
+#stop-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/window-close.svg") !important;
+}
+
+#home-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/go-home.svg") !important;
+}
+
+#history-panelmenu .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/view-history-symbolic.svg") !important;
+}
+
+#save-page-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/document-save.svg") !important;
+}
+
+#print-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/document-print.svg") !important;
+}
+
+#find-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/edit-find.svg") !important;
+}
+
+#open-file-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/document-open.svg") !important;
+}
+
+#sidebar-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/sidebar-collapse.svg") !important;
+}
+
+#zoom-in-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/zoom-in.svg") !important;
+}
+
+#zoom-out-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/zoom-out.svg") !important;
+}
+
+#cut-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/edit-cut.svg") !important;
+}
+
+#copy-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/edit-copy.svg") !important;
+}
+
+#paste-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/edit-paste.svg") !important
+}
+
+/* Indirect substitute */
+#repair-text-encoding-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/color-mode-invert-text.svg") !important;
+}
+
+#email-link-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/mail-message-new.svg") !important;
+}
+
+#passwords-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/status/22/dialog-password.svg") !important;
+}
+
+#sync-tabs-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/folder-sync.svg") !important;
+}
+
+/* Indirect substitute */
+#screenshot-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/camera-photo.svg") !important;
+}
+
+#preferences-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/settings-configure.svg") !important;
+}
+
+#forget-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/edit-clear-history.svg") !important;
+}
+
+#privatebrowsing-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/16/view-private.svg") !important;
+}
+
+#developer-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/categories/22/applications-development-symbolic.svg") !important;
+}
+
+#import-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/kontact-import-wizard.svg") !important;
+}
+
+#new-window-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/window-new.svg") !important;
+}
+
+#fullscreen-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/view-fullscreen.svg") !important;
+}
+
+#bookmarks-menu-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/bookmarks.svg") !important;
+}
+
+#library-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/places/22/folder-library.svg") !important;
+}
+
+#fxa-toolbar-menu-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/im-user.svg") !important;
+}
+
+#alltabs-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/tab-detach.svg") !important;
+}
+
+
+
+/* === Style the tab close button === */
+.tab-close-button {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/window-close.svg") !important;
+    padding: 0 !important;
+    height: 16px !important;
+    width: 16px !important;
+}
+.tab-close-button:hover {
+    background: rgba(229, 57, 53, 0.3) !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+}
+.tab-close-button:active {
+    background: rgba(205, 74, 74) !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+    fill: white !important;
+    -moz-context-properties: fill !important;
+}
