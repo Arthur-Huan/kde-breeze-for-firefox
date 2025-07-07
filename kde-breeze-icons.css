@@ -4,6 +4,7 @@
     -moz-context-properties: fill !important;
 }
 
+/* === Icons for the navbar === */
 
 #PanelUI-menu-button .toolbarbutton-icon {
     list-style-image: url("file:///usr/share/icons/breeze/actions/22/application-menu.svg") !important;
@@ -15,6 +16,9 @@
 #unified-extensions-button .toolbarbutton-icon {
     list-style-image: url("file:///usr/share/icons/breeze/preferences/32/yast-addon.svg") !important;
     padding: 6px !important;
+}
+#nav-bar-overflow-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/arrow-right-double-symbolic.svg") !important;
 }
 
 #back-button .toolbarbutton-icon {
@@ -143,11 +147,23 @@
     list-style-image: url("file:///usr/share/icons/breeze/actions/22/im-user.svg") !important;
 }
 
+#downloads-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/edit-download.svg") !important;
+}
+
 #alltabs-button .toolbarbutton-icon {
     list-style-image: url("file:///usr/share/icons/breeze/actions/22/tab-detach.svg") !important;
 }
 
+/* === Icons for the tabs bar === */
 
+#wrapper-new-tab-button .toolbarbutton-icon {
+list-style-image: url("file:///usr/share/icons/breeze/actions/22/list-add.svg") !important;
+}
+
+#tabs-newtab-button .toolbarbutton-icon {
+    list-style-image: url("file:///usr/share/icons/breeze/actions/22/list-add.svg") !important;
+}
 
 /* === Style the tab close button === */
 .tab-close-button {

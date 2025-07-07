@@ -76,7 +76,7 @@
 	}
 
 	#tabs-newtab-button {
-		margin-top: 9px !important;
+		margin-top: 8px !important;
 		margin-left: 2px !important;
 		min-height: 24px !important;
 		max-height: 24px !important;
@@ -85,9 +85,9 @@
 	}
 	#tabs-newtab-button .toolbarbutton-icon {
 		min-height: 0px !important;
-		max-height: 16px !important;
+		max-height: 24px !important;
 		min-width: 0px !important;
-		max-width: 16px !important;
+		max-width: 24px !important;
 		padding: 0px !important;
 	}
 
