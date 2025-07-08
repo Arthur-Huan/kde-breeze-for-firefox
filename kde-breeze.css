@@ -1,5 +1,4 @@
 @media (prefers-color-scheme: light) {
-
 	:root {
 		--kde-accent: accentcolor;
 		--kde-view-background: #fcfcfc;
@@ -10,6 +9,7 @@
 		--kde-tab-hover: var(--kde-hover-decoration);
 		--kde-tab-text: #232627;
 		--kde-border-color: #bdc3c7;
+		--toolbar-bgcolor: var(--kde-window-background) !important;
 	}
 
 	#nav-bar {
