@@ -1,10 +1,49 @@
 /* This currently doesn't work because Firefox doesn't color in locally loaded SVGs */
-* .toolbarbutton-icon {
+.toolbarbutton-icon {
     fill: currentColor !important;
     -moz-context-properties: fill !important;
 }
+
 @media (prefers-color-scheme: light) {
-    /* === Icons for the navbar === */
+
+    /* =========================
+     * Icons for the tabs bar
+     * ========================= */
+
+    #wrapper-new-tab-button .toolbarbutton-icon {
+    	list-style-image: url("file:///usr/share/icons/breeze/actions/22/list-add.svg") !important;
+    }
+
+    #tabs-newtab-button .toolbarbutton-icon {
+    	list-style-image: url("file:///usr/share/icons/breeze/actions/22/list-add.svg") !important;
+    }
+
+    /* =============================
+     * Style the tab close button
+     * ============================= */
+
+    .tab-close-button {
+        list-style-image: url("file:///usr/share/icons/breeze/actions/22/window-close.svg") !important;
+        padding: 1px !important;
+        height: 18px !important;
+        width: 18px !important;
+    }
+    .tab-close-button:hover {
+        background: rgba(229, 57, 53, 0.3) !important;
+        border-radius: 50% !important;
+        box-shadow: none !important;
+    }
+    .tab-close-button:active {
+        background: rgba(205, 74, 74) !important;
+        border-radius: 50% !important;
+        box-shadow: none !important;
+        fill: white !important;
+        -moz-context-properties: fill !important;
+    }
+
+    /* =======================
+     * Icons for the navbar
+     * ======================= */
 
     #PanelUI-menu-button .toolbarbutton-icon {
         list-style-image: url("file:///usr/share/icons/breeze/actions/22/application-menu.svg") !important;
@@ -153,35 +192,5 @@
 
     #alltabs-button .toolbarbutton-icon {
         list-style-image: url("file:///usr/share/icons/breeze/actions/22/tab-detach.svg") !important;
-    }
-
-    /* === Icons for the tabs bar === */
-
-    #wrapper-new-tab-button .toolbarbutton-icon {
-    list-style-image: url("file:///usr/share/icons/breeze/actions/22/list-add.svg") !important;
-    }
-
-    #tabs-newtab-button .toolbarbutton-icon {
-        list-style-image: url("file:///usr/share/icons/breeze/actions/22/list-add.svg") !important;
-    }
-
-    /* === Style the tab close button === */
-    .tab-close-button {
-        list-style-image: url("file:///usr/share/icons/breeze/actions/22/window-close.svg") !important;
-        padding: 0 !important;
-        height: 16px !important;
-        width: 16px !important;
-    }
-    .tab-close-button:hover {
-        background: rgba(229, 57, 53, 0.3) !important;
-        border-radius: 50% !important;
-        box-shadow: none !important;
-    }
-    .tab-close-button:active {
-        background: rgba(205, 74, 74) !important;
-        border-radius: 50% !important;
-        box-shadow: none !important;
-        fill: white !important;
-        -moz-context-properties: fill !important;
     }
 }
