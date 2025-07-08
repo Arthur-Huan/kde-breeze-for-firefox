@@ -12,6 +12,10 @@
 		--toolbar-bgcolor: var(--kde-window-background) !important;
 	}
 
+	/* ==============================
+	 * Style the navbar and urlbar
+	 * ============================== */
+
 	#nav-bar {
 		border-top: 1px solid var(--kde-border-color) !important;
 		background: var(--kde-window-background) !important;
@@ -32,7 +36,10 @@
 		border: 1px solid var(--kde-border-color) !important;
 	}
 
-	/* === Style the tabs === */
+	/* ==============================
+	 * Style the tabs and tabs bar
+	 * ============================== */
+
 	#TabsToolbar {
 		min-height: 42px !important;
 		max-height: 42px !important;
@@ -91,33 +98,50 @@
 		padding: 0px !important;
 	}
 
+	/* ===================================================
+	 * Style the application menu (main menu on navbar)
+	 * =================================================== */
 
-	/* Menus, context menus, dropdowns, etc. */
-	* {
-		--menu-selection-background: var(--kde-accent) !important;
+	#appMenu-popup .panel-subview-body > toolbarbutton,
+	#appMenu-popup .panel-subview-body > .subviewbutton {
+		/* Add persistent border for spacing consistency */
+		border: 1px solid transparent !important;
+		border-radius: 4px !important;
+		padding-block: 4px !important;  /* Vertical padding */
+		padding-inline: 8px !important; /* Horizontal padding */
+		margin-block: 0px !important;    /* Vertical margin */
 	}
 
-	/* Selection highlights */
-	menuitem[selected="true"],
-	menuitem[_moz-menuactive="true"],
-	.menuitem-highlight,
-	#BMB_bookmarksPopup menupopup menuitem[_moz-menuactive="true"],
-	.panel-subview-body .subviewbutton:hover,
-	#urlbar-results .urlbarView-row[aria-selected="true"],
-	.autocomplete-richlistitem[selected="true"],
-	treechildren::-moz-tree-row(selected),
-	treechildren::-moz-tree-row(current, focus) {
-		background-color: var(--menu-selection-background, var(--kde-accent)) !important;
-		color: var(--menu-selection-foreground, white) !important;
+	/* Style hovered, active, or selected entry in the Firefox application menu */
+	#appMenu-popup .panel-subview-body > toolbarbutton:hover,
+	#appMenu-popup .panel-subview-body > .subviewbutton:hover,
+	#appMenu-popup .panel-subview-body > toolbarbutton:active,
+	#appMenu-popup .panel-subview-body > .subviewbutton:active,
+	#appMenu-popup .panel-subview-body > toolbarbutton[aria-checked="true"],
+	#appMenu-popup .panel-subview-body > .subviewbutton[aria-checked="true"] {
+		border: 1px solid var(--kde-accent) !important;
+		background-color: var(--kde-hover-decoration) !important;
 	}
 
-	/* General selection fallback */
-	*::selection {
-		background-color: var(--kde-accent) !important;
-		color: white !important;
+	/* ============================================
+	 * Style the context menu (right-click menu)
+	 * ============================================ */
+
+	menupopup menuitem {
+		/* Add persistent border for spacing consistency */
+		border: 1px solid transparent !important;
+	}
+	/* Add border on hover */
+	menupopup menuitem:hover
+	{
+		border: 1px solid var(--kde-accent) !important;
+		border-radius: 4px !important;
+		background: var(--kde-hover-decoration) !important;
 	}
 
-	/* === Style buttons (and bookmark items, which I count as buttons) === */
+	/* ===============================================================
+	 * Style buttons (and bookmark items, which I count as buttons)
+	 * =============================================================== */
 
 	/* Shared for all states */
 
