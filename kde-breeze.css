@@ -190,9 +190,7 @@
 		:focus,
 		:active,
 		[open],
-		[selected],
-		[checked="true"],
-		[aria-checked="true"]
+		[selected]
 	) {
 		border: 1px solid var(--kde-accent) !important;
 		background-color: var(--kde-hover-decoration) !important;
