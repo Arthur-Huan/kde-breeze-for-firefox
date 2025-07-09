@@ -179,41 +179,21 @@
 	}
 
 	/* Style hovered, active, or selected */
-	.panel-subview-body > toolbarbutton:hover,
-	.panel-subview-body > toolbarbutton:focus,
-	.panel-subview-body > toolbarbutton:active,
-	.panel-subview-body > toolbarbutton[open],
-	.panel-subview-body > toolbarbutton[selected],
-	.panel-subview-body > toolbarbutton[checked="true"],
-	.panel-subview-body > toolbarbutton[aria-checked="true"],
-	.subviewbutton:hover,
-	.subviewbutton:focus,
-	.subviewbutton:active,
-	.subviewbutton[open],
-	.subviewbutton[selected],
-	.subviewbutton[checked="true"],
-	.subviewbutton[aria-checked="true"],
-	.menu-iconic:hover,
-	.menu-iconic:focus,
-	.menu-iconic:active,
-	.menu-iconic[open],
-	.menu-iconic[selected],
-	.menu-iconic[checked="true"],
-	.menu-iconic[aria-checked="true"],
-	menuitem:hover,
-	menuitem:focus,
-	menuitem:active,
-	menuitem[open],
-	menuitem[selected],
-	menuitem[checked="true"],
-	menuitem[aria-checked="true"],
-	menu:hover,
-	menu:focus,
-	menu:active,
-	menu[open],
-	menu[selected],
-	menu[checked="true"],
-	menu[aria-checked="true"] {
+	:is(
+		.panel-subview-body > toolbarbutton,
+		.subviewbutton,
+		.menu-iconic,
+		menuitem,
+		menu
+	):is(
+		:hover,
+		:focus,
+		:active,
+		[open],
+		[selected],
+		[checked="true"],
+		[aria-checked="true"]
+	) {
 		border: 1px solid var(--kde-accent) !important;
 		background-color: var(--kde-hover-decoration) !important;
 	}
