@@ -1,0 +1,8 @@
+@import "kde-breeze.css";
+
+@media (prefers-color-scheme: light) {
+	/* Override colors */
+	:root {
+		--kde-hover-decoration: rgba(245, 14, 14, 0.3);
+	}
+}

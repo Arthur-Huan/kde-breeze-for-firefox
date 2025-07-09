@@ -4,7 +4,7 @@
 set -e
 
 # Supported colors
-SUPPORTED_COLORS=(green)
+SUPPORTED_COLORS=(green purple red suse ubuntu yellow)
 COLOR=""
 
 # Parse --color argument
@@ -60,7 +60,7 @@ mkdir -p "$CHROME_DIR"
 # 4. Move CSS files into chrome directory
 cp kde-breeze.css kde-breeze-icons.css "$CHROME_DIR/"
 if [[ -n "$COLOR" ]]; then
-  cp "kde-breeze-colors-$COLOR.css" "$CHROME_DIR/"
+  cp "colors/kde-breeze-colors-$COLOR.css" "$CHROME_DIR/"
 fi
 
 # 5. Create userChrome.css if it doesn't exist
