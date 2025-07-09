@@ -76,11 +76,13 @@ if [ -s "$USERCHROME" ]; then
 fi
 
 # Build the import statements
-IMPORTS='@import "kde-breeze.css";
-@import "kde-breeze-icons.css";'
+IMPORTS='@import "kde-breeze-icons.css";'
 if [[ -n "$COLOR" ]]; then
   IMPORTS="$IMPORTS
 @import \"kde-breeze-colors-$COLOR.css\";"
+else
+  IMPORTS="$IMPORTS
+@import \"kde-breeze.css\";"
 fi
 TEMP_FILE=$(mktemp)
 echo "$IMPORTS" > "$TEMP_FILE"
