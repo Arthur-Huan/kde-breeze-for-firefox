@@ -103,12 +103,6 @@
 		margin-bottom: -10px !important;
 	}
 
-
-	.tabbrowser-tab[selected="true"] .tab-background {
-		/* Cover up the border drawn by the navbar, so it seems that the active blends into the bar */
-		border-bottom: 1px solid var(--kde-window-background) !important;
-	}
-
 	.tabbrowser-tab {
 		margin-top: 2px !important;
 		margin-bottom: 0px !important;
@@ -121,23 +115,28 @@
 		margin-inline-end: 0 !important;
 		padding-inline: 0 !important;
 	}
-	.tabbrowser-tab[fadein]:not([pinned]) {
-		max-width: 250px !important;
-		min-width: 100px !important;
-	}
 	.tabbrowser-tab .tab-content {
 		margin-top: -8px !important;
 	}
 	.tabbrowser-tab .tab-label {
 	}
+	.tabbrowser-tab[fadein]:not([pinned]) {
+		/* Tabs width */
+		max-width: 250px !important;
+		min-width: 100px !important;
+	}
 
+	/* Active tab */
 	.tabbrowser-tab[selected="true"] .tab-background {
 		border: 1px solid var(--kde-border-color) !important;
 		border-bottom: none !important;
 		background-color: var(--kde-tab-active) !important;
 		color: var(--kde-tab-text) !important;
+		/* Cover up the border drawn by the navbar, so it seems that the active blends into the bar */
+		border-bottom: 1px solid var(--kde-window-background) !important;
 	}
 
+	/* Inactive tabs */
 	.tabbrowser-tab:not([selected="true"]) .tab-background {
 		background-color: var(--kde-tab-inactive) !important;
 		color: var(--kde-tab-text) !important;
@@ -166,6 +165,7 @@
 	 *   Dropdown menus from navbar icons (e.g. library)
 	 * ==================================================== */
 
+	/* Shared for all states */
 	.panel-subview-body > toolbarbutton,
 	.subviewbutton,
 	.menu-iconic,
@@ -177,34 +177,35 @@
 		padding-inline: 8px !important; /* Horizontal padding */
 		margin-block: 0px !important;   /* Vertical margin */
 	}
+
 	/* Style hovered, active, or selected entry in the Firefox application menu */
 	.panel-subview-body > toolbarbutton:hover,
 	.panel-subview-body > toolbarbutton:focus,
 	.panel-subview-body > toolbarbutton:active,
 	.panel-subview-body > toolbarbutton[open],
 	.panel-subview-body > toolbarbutton[selected],
-	.panel-subview-body > toolbarbutton[checked="true"],
+	.panel-subview-body > toolbarbutton[checked],
 	.panel-subview-body > toolbarbutton[aria-checked="true"],
 	.subviewbutton:hover,
 	.subviewbutton:focus,
 	.subviewbutton:active,
 	.subviewbutton[open],
 	.subviewbutton[selected],
-	.subviewbutton[checked="true"],
+	.subviewbutton[checked],
 	.subviewbutton[aria-checked="true"],
 	.menu-iconic:hover,
 	.menu-iconic:focus,
 	.menu-iconic:active,
 	.menu-iconic[open],
 	.menu-iconic[selected],
-	.menu-iconic[checked="true"],
+	.menu-iconic[checked],
 	.menu-iconic[aria-checked="true"],
 	menuitem:hover,
 	menuitem:focus,
 	menuitem:active,
 	menuitem[open],
 	menuitem[selected],
-	menuitem[checked="true"],
+	menuitem[checked],
 	menuitem[aria-checked="true"] {
 		border: 1px solid var(--kde-accent) !important;
 		background-color: var(--kde-hover-decoration) !important;
@@ -215,7 +216,6 @@
 	 * =============================================================== */
 
 	/* Shared for all states */
-
 	.toolbarbutton-1 .toolbarbutton-icon {
 		border: 1px solid transparent !important;  /* Add a border when not clicked for consistent spacing */
 		padding: 4px !important;
@@ -233,8 +233,8 @@
 	.toolbarbutton-1:hover .toolbarbutton-icon,
 	.toolbarbutton-1:focus .toolbarbutton-icon,
 	.toolbarbutton-1:active .toolbarbutton-icon,
-	.toolbarbutton-1[open="true"] .toolbarbutton-icon,
-	.toolbarbutton-1[checked="true"] .toolbarbutton-icon,
+	.toolbarbutton-1[open] .toolbarbutton-icon,
+	.toolbarbutton-1[checked] .toolbarbutton-icon,
 	.toolbarbutton-1[aria-pressed="true"] .toolbarbutton-icon,
 	#PlacesToolbarItems .bookmark-item:hover,
 	#PlacesToolbarItems .bookmark-item:focus,
@@ -248,8 +248,8 @@
 	/* When clicked or active: add fill color */
 	.toolbarbutton-1:focus .toolbarbutton-icon,
 	.toolbarbutton-1:active .toolbarbutton-icon,
-	.toolbarbutton-1[open="true"] .toolbarbutton-icon,
-	.toolbarbutton-1[checked="true"] .toolbarbutton-icon,
+	.toolbarbutton-1[open] .toolbarbutton-icon,
+	.toolbarbutton-1[checked] .toolbarbutton-icon,
 	.toolbarbutton-1[aria-pressed="true"] .toolbarbutton-icon,
 	#PlacesToolbarItems .bookmark-item:focus,
 	#PlacesToolbarItems .bookmark-item:active {
