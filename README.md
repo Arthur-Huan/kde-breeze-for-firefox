@@ -36,15 +36,15 @@ Color variants: Add alongside the previous two files for different colors
 
 ### Method 2 - Manual configuration:
 
-** Set up userChrome ** (skip if already configured):
+**Set up userChrome** (skip if already configured):
 
-1. **Open Firefox** and go to `about:config`.
+1. Open Firefox and go to `about:config`.
 2. Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
 3. Open your Firefox profile folder. (Go to `about:support` and find "Profile Folder".)
 4. Create a `chrome` folder inside your profile folder.
 5. Create a `userChrome.css` file
 
-** Apply the theme **
+**Apply the theme**
 
 1. Copy the desired CSS file(s) from this repository into the `chrome` folder
 2. Import the css files in `userChrome.css`.
