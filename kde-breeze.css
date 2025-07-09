@@ -159,12 +159,17 @@
 		padding: 0px !important;
 	}
 
-	/* ===================================================
-	 * Style the application menu (main menu on navbar)
-	 * =================================================== */
+	/* ====================================================
+	 * Style menus, including:
+	 *   Application menu (hamburger menu)
+	 *   Right-click menu (context menu)
+	 *   Dropdown menus from navbar icons (e.g. library)
+	 * ==================================================== */
 
-	#appMenu-popup .panel-subview-body > toolbarbutton,
-	#appMenu-popup .panel-subview-body > .subviewbutton {
+	.panel-subview-body > toolbarbutton,
+	.subviewbutton,
+	.menu-iconic,
+	menuitem {
 		/* Add persistent border for spacing consistency */
 		border: 1px solid transparent !important;
 		border-radius: 4px !important;
@@ -173,30 +178,36 @@
 		margin-block: 0px !important;   /* Vertical margin */
 	}
 	/* Style hovered, active, or selected entry in the Firefox application menu */
-	#appMenu-popup .panel-subview-body > toolbarbutton:hover,
-	#appMenu-popup .panel-subview-body > .subviewbutton:hover,
-	#appMenu-popup .panel-subview-body > toolbarbutton:active,
-	#appMenu-popup .panel-subview-body > .subviewbutton:active,
-	#appMenu-popup .panel-subview-body > toolbarbutton[aria-checked="true"],
-	#appMenu-popup .panel-subview-body > .subviewbutton[aria-checked="true"] {
+	.panel-subview-body > toolbarbutton:hover,
+	.panel-subview-body > toolbarbutton:focus,
+	.panel-subview-body > toolbarbutton:active,
+	.panel-subview-body > toolbarbutton[open],
+	.panel-subview-body > toolbarbutton[selected],
+	.panel-subview-body > toolbarbutton[checked="true"],
+	.panel-subview-body > toolbarbutton[aria-checked="true"],
+	.subviewbutton:hover,
+	.subviewbutton:focus,
+	.subviewbutton:active,
+	.subviewbutton[open],
+	.subviewbutton[selected],
+	.subviewbutton[checked="true"],
+	.subviewbutton[aria-checked="true"],
+	.menu-iconic:hover,
+	.menu-iconic:focus,
+	.menu-iconic:active,
+	.menu-iconic[open],
+	.menu-iconic[selected],
+	.menu-iconic[checked="true"],
+	.menu-iconic[aria-checked="true"],
+	menuitem:hover,
+	menuitem:focus,
+	menuitem:active,
+	menuitem[open],
+	menuitem[selected],
+	menuitem[checked="true"],
+	menuitem[aria-checked="true"] {
 		border: 1px solid var(--kde-accent) !important;
 		background-color: var(--kde-hover-decoration) !important;
-	}
-
-	/* ============================================
-	 * Style the context menu (right-click menu)
-	 * ============================================ */
-
-	menupopup menuitem {
-		/* Add persistent border for spacing consistency */
-		border: 1px solid transparent !important;
-	}
-	/* Add border on hover */
-	menupopup menuitem:hover
-	{
-		border: 1px solid var(--kde-accent) !important;
-		border-radius: 4px !important;
-		background: var(--kde-hover-decoration) !important;
 	}
 
 	/* ===============================================================

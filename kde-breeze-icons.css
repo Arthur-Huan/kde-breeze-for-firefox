@@ -193,4 +193,20 @@
     #alltabs-button .toolbarbutton-icon {
         list-style-image: url("file:///usr/share/icons/breeze/actions/22/tab-detach.svg") !important;
     }
+
+    /* =========================
+     * Application menu (hamburger menu) icons
+     * ========================= */
+
+    #appMenu-zoomEnlarge-button2 {
+        list-style-image: url("file:///usr/share/icons/breeze/actions/22/zoom-in.svg") !important;
+    }
+
+    #appMenu-zoomReduce-button2 {
+        list-style-image: url("file:///usr/share/icons/breeze/actions/22/zoom-out.svg") !important;
+    }
+
+    #appMenu-fullscreen-button2 {
+        list-style-image: url("/usr/share/icons/breeze/actions/16/view-fullscreen.svg") !important;
+    }
 }
