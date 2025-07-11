@@ -19,6 +19,7 @@
 	#nav-bar {
 		border-top: 1px solid var(--kde-border-color) !important;
 		background: var(--kde-window-background) !important;
+		z-index: 1 !important;  /* Lower z-index for active tab to cover up the border */
 	}
 
 	#urlbar,
@@ -129,11 +130,13 @@
 	/* Active tab */
 	.tabbrowser-tab[selected="true"] .tab-background {
 		border: 1px solid var(--kde-border-color) !important;
-		border-bottom: none !important;
 		background-color: var(--kde-tab-active) !important;
 		color: var(--kde-tab-text) !important;
 		/* Cover up the border drawn by the navbar, so it seems that the active tab blends into the bar */
-		border-bottom: 1px solid var(--kde-window-background) !important;
+		z-index: 2 !important;  /* Higher z-index than navbar, cover border */
+	}
+	.tabbrowser-tab[selected="true"] .tab-content {
+		z-index: 3 !important;  /* Display tab content over teh background */
 	}
 
 	/* Inactive tabs */
