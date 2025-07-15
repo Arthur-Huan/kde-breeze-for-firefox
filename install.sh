@@ -63,8 +63,9 @@ if [[ -n "$COLOR" ]]; then
   cp "colors/kde-breeze-colors-$COLOR.css" "$CHROME_DIR/"
 fi
 
-# 4b. Copy icons directory into chrome directory
+# 4b. Copy icons directories into chrome directory
 cp -r breeze-icons "$CHROME_DIR/"
+cp -r breeze-dark-icons "$CHROME_DIR/"
 
 # 5. Create userChrome.css if it doesn't exist
 USERCHROME="$CHROME_DIR/userChrome.css"

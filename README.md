@@ -50,7 +50,7 @@ Color variants: Add alongside the previous two files for different colors
 2. Import the css files in `userChrome.css`.
    * For normal installation, import both `kde-breeze.css` and `kde-breeze-icons.css`.
    * For color variants, import the color variant's css file along with `kde-breeze-icons.css`.
-3. Copy the `icons` folder into the `chrome` folder
+3. Copy the `breeze-icons` and `breeze-dark-icons` folders into the `chrome` folder
 4. Restart Firefox to apply the theme.
 
 ## Credits
