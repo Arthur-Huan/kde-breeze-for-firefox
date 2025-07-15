@@ -57,11 +57,14 @@ fi
 # 3. Create chrome directory if it doesn't exist
 mkdir -p "$CHROME_DIR"
 
-# 4. Move CSS files into chrome directory
+# 4a. Move CSS files into chrome directory
 cp kde-breeze.css kde-breeze-icons.css "$CHROME_DIR/"
 if [[ -n "$COLOR" ]]; then
   cp "colors/kde-breeze-colors-$COLOR.css" "$CHROME_DIR/"
 fi
+
+# 4b. Copy icons directory into chrome directory
+cp -r breeze-icons "$CHROME_DIR/"
 
 # 5. Create userChrome.css if it doesn't exist
 USERCHROME="$CHROME_DIR/userChrome.css"
