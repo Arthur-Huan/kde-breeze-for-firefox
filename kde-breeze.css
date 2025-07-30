@@ -220,7 +220,8 @@ menu {
 	* =============================================================== */
 
 /* Shared for all states */
-.toolbarbutton-1 .toolbarbutton-icon {
+.toolbarbutton-1 .toolbarbutton-icon{
+	border-radius: 4px !important;
 	border: 1px solid transparent !important;  /* Persistent border for spacing */
 	padding: 4px !important;
 	background: none !important;
@@ -239,12 +240,18 @@ menu {
 }
 
 /* When hovered, clicked, or active: add colored border */
-.toolbarbutton-1:hover .toolbarbutton-icon,
-.toolbarbutton-1:focus .toolbarbutton-icon,
-.toolbarbutton-1:active .toolbarbutton-icon,
-.toolbarbutton-1[open] .toolbarbutton-icon,
-.toolbarbutton-1[checked="true"] .toolbarbutton-icon,
-.toolbarbutton-1[aria-pressed="true"] .toolbarbutton-icon,
+:is(
+	.toolbarbutton-1,
+	stack:nth-child(1)
+):is(
+	:hover,
+	:focus,
+	:active,
+	[open],
+	[selected]
+	[checked]
+	[aria-pressed="true"]
+) .toolbarbutton-icon,
 #PlacesToolbarItems .bookmark-item:hover,
 #PlacesToolbarItems .bookmark-item:focus,
 #PlacesToolbarItems .bookmark-item:active {
@@ -252,13 +259,37 @@ menu {
 }
 
 /* When clicked or active: add fill color */
-.toolbarbutton-1:focus .toolbarbutton-icon,
-.toolbarbutton-1:active .toolbarbutton-icon,
-.toolbarbutton-1[open] .toolbarbutton-icon,
-.toolbarbutton-1[checked="true"] .toolbarbutton-icon,
-.toolbarbutton-1[aria-pressed="true"] .toolbarbutton-icon,
+:is(
+	.toolbarbutton-1,
+	stack:nth-child(1)
+):is(
+	:hover,
+	:focus,
+	:active,
+	[open],
+	[selected]
+) .toolbarbutton-icon,
 #PlacesToolbarItems .bookmark-item:focus,
 #PlacesToolbarItems .bookmark-item:active {
 	background: var(--kde-hover-decoration) !important;
 }
 
+
+
+/* ===================================
+ * Workarounds for stubborn buttons
+ * =================================== */
+
+/* Pinned addons buttons */
+stack:nth-child(1) {
+	background: none !important;
+	box-shadow: none !important;
+}
+.toolbarbutton-1[id$="-browser-action"] .toolbarbutton-icon,
+.toolbarbutton-1[id$="-BAP"] .toolbarbutton-icon,
+#PanelUI-menu-button .toolbarbutton-icon {
+	height: 30px !important;
+	width: 30px !important;
+	padding: 6px !important;
+	margin: -6px !important;
+}
