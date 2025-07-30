@@ -220,7 +220,8 @@ menu {
 	* =============================================================== */
 
 /* Shared for all states */
-.toolbarbutton-1 .toolbarbutton-icon{
+.toolbarbutton-1 .toolbarbutton-icon,
+#downloads-button > stack:nth-child(1) {
 	border-radius: 4px !important;
 	border: 1px solid transparent !important;  /* Persistent border for spacing */
 	padding: 4px !important;
@@ -252,6 +253,9 @@ menu {
 	[checked]
 	[aria-pressed="true"]
 ) .toolbarbutton-icon,
+#downloads-button:hover > stack:nth-child(1),
+#downloads-button:focus > stack:nth-child(1),
+#downloads-button[open] > stack:nth-child(1),
 #PlacesToolbarItems .bookmark-item:hover,
 #PlacesToolbarItems .bookmark-item:focus,
 #PlacesToolbarItems .bookmark-item:active {
@@ -263,14 +267,15 @@ menu {
 	.toolbarbutton-1,
 	stack:nth-child(1)
 ):is(
-	:hover,
 	:focus,
 	:active,
 	[open],
 	[selected]
 ) .toolbarbutton-icon,
 #PlacesToolbarItems .bookmark-item:focus,
-#PlacesToolbarItems .bookmark-item:active {
+#PlacesToolbarItems .bookmark-item:active,
+#downloads-button:focus > stack:nth-child(1),
+#downloads-button[open] > stack:nth-child(1) {
 	background: var(--kde-hover-decoration) !important;
 }
 
@@ -281,15 +286,26 @@ menu {
  * =================================== */
 
 /* Pinned addons buttons */
-stack:nth-child(1) {
+:is(
+	.toolbarbutton-1[id$="-browser-action"],
+	.toolbarbutton-1[id$="-BAP"],
+	#PanelUI-menu-button,
+	#downloads-button
+) stack:nth-child(1) {
 	background: none !important;
 	box-shadow: none !important;
 }
 .toolbarbutton-1[id$="-browser-action"] .toolbarbutton-icon,
 .toolbarbutton-1[id$="-BAP"] .toolbarbutton-icon,
 #PanelUI-menu-button .toolbarbutton-icon {
-	height: 30px !important;
-	width: 30px !important;
+	height: 32px !important;
+	width: 32px !important;
 	padding: 6px !important;
 	margin: -6px !important;
+}
+/* Downloads button */
+#downloads-button > stack:nth-child(1) {
+	height: 32px !important;
+	width: 32px !important;
+	padding: 6px !important;
 }
