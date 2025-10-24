@@ -1,3 +1,9 @@
+.toolbarbutton-1 .toolbarbutton-icon,
+#downloads-button > stack:nth-child(1) {
+	padding: 4px !important;
+}
+
+
 /* =========================
  * Icons for light mode
  * ========================= */
