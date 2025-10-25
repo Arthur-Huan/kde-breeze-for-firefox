@@ -43,14 +43,15 @@
 	box-shadow: none !important;
 }
 #urlbar {
-	margin: 2px !important;
+	border: 1px solid var(--kde-border-color) !important;
+	margin-top: 2px !important;
+	margin-bottom: 4px !important;
 	border-radius: 4px !important;
-	min-height: 30px !important;
-	max-height: 30px !important;
+	min-height: 32px !important;
+	max-height: 32px !important;
 }
 #urlbar-background {
 	background: var(--kde-view-background) !important;
-	border: 1px solid var(--kde-border-color) !important;
 }
 
 /* Style the urlbar and its dropdown when activated (e.g. by typing) */
@@ -61,7 +62,6 @@
 }
 #urlbar[open] .urlbarView,
 #urlbar[open] .urlbarView-body {
-	border: 1px solid var(--kde-border-color) !important;
 	border-radius: 0 !important;
 	box-shadow: none !important;
 }
@@ -114,8 +114,8 @@
 	* ============================== */
 
 #TabsToolbar {
-	min-height: 42px !important;
-	max-height: 42px !important;
+	min-height: 40px !important;
+	max-height: 40px !important;
 	background: var(--kde-window-background) !important;
 	margin-bottom: -10px !important;
 }
@@ -131,6 +131,9 @@
 	margin-inline-start: 0 !important;
 	margin-inline-end: 0 !important;
 	padding-inline: 0 !important;
+}
+.tab-background {
+  box-shadow: none !important;
 }
 .tabbrowser-tab .tab-content {
 	margin-top: -8px !important;
@@ -162,19 +165,12 @@
 }
 
 #tabs-newtab-button {
-	margin-top: 8px !important;
-	margin-left: 2px !important;
-	min-height: 24px !important;
-	max-height: 24px !important;
-	min-width: 20px !important;
-	max-width: 20px !important;
+	margin-top: -6px !important;
 }
 #tabs-newtab-button .toolbarbutton-icon {
-	min-height: 0px !important;
-	max-height: 24px !important;
-	min-width: 0px !important;
-	max-width: 24px !important;
-	padding: 0px !important;
+	max-width: 20px !important;
+	max-height: 22px !important;
+	padding: 2px !important;
 }
 
 /* ====================================================
@@ -230,7 +226,6 @@ menu {
 }
 #PlacesToolbarItems .bookmark-item {
 	border: 1px solid transparent !important;  /* Persistent border for spacing */
-	padding: 4px !important;
 	background: none !important;
 	box-shadow: none !important;
 	/* Adjust padding */
