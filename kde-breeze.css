@@ -38,10 +38,6 @@
 	z-index: 1 !important;  /* Lower z-index for active tab to cover up the border */
 }
 
-#urlbar,
-#urlbar-background {
-	box-shadow: none !important;
-}
 #urlbar {
 	border: 1px solid var(--kde-border-color) !important;
 	margin-top: 2px !important;
@@ -50,11 +46,20 @@
 	min-height: 32px !important;
 	max-height: 32px !important;
 }
-#urlbar-background {
+#urlbar .urlbar-background {
+	background: var(--kde-view-background) !important;
+	box-shadow: none !important;
+}
+#urlbar .urlbar-input-box,
+#urlbar:not([open]) .urlbar-input-container {
 	background: var(--kde-view-background) !important;
 }
+#urlbar-searchmode-switcher,
+#urlbar .searchmode-switcher-chicklet {
+	background: transparent !important;
+}
 
-/* Style the urlbar and its dropdown when activated (e.g. by typing) */
+/* Style the urlbar's dropdown when activated (e.g. by typing) */
 #urlbar[open] .urlbarView,
 #urlbar[focused="true"] .urlbarView {
 	background: var(--kde-view-background) !important;
@@ -62,6 +67,7 @@
 }
 #urlbar[open] .urlbarView,
 #urlbar[open] .urlbarView-body {
+	border: 1px solid var(--kde-border-color) !important;
 	border-radius: 0 !important;
 	box-shadow: none !important;
 }
@@ -81,13 +87,22 @@
 
 /* Workarounds to make the position consistent with when not opened */
 #urlbar[open] {
-	/* This is just the url bar background, separate from below */
-	margin-top: 6px !important;
+	/* The url bar input area background */
+	min-width: 0px !important;
+	margin-left: 1px !important;
+	margin-top: 7px !important;
+	border: none !important;
 }
+#urlbar[open] .urlbar-background {
+	margin-right: 11px !important;
+	margin-top: -1px !important;
+	margin-left: -1px !important;
+}
+
 #urlbar[open] .urlbar-input-container {
-	/* Adjust this first to target the entire container */
+	/* Adjust this to target the entire container (incl. input and dropdown) */
 	margin-left: -5px !important;
-	margin-top: -6px !important;
+	margin-top: -8px !important;
 }
 #urlbar[open] #urlbar-input {
 	/* Adjust the text input */
@@ -96,8 +111,8 @@
 }
 #urlbar[open] .urlbar-go-button {
 	/* Adjust the "go" or "search" arrow at the end of the bar */
-	margin-right: 0px !important;
-	margin-top: 0px !important;
+	margin-right: 2px !important;
+	margin-top: 1px !important;
 }
 #urlbar[open] .urlbarView {
 	/* Adjust the suggestions dropdown */
