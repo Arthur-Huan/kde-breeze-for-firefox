@@ -13,7 +13,18 @@ show_help() {
 
 COLOR=""
 # Supported color variants
-SUPPORTED_COLORS=(green purple red opensuse ubuntu yellow)
+SUPPORTED_COLORS=(
+    green
+    purple
+    red
+    opensuse
+    ubuntu
+    yellow
+    catppuccin-latte
+    catppuccin-frappe
+    catppuccin-macchiato
+    catppuccin-mocha
+)
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do

@@ -52,3 +52,4 @@ A Firefox theme that emulates KDE's Breeze style in Firefox. This project provid
 ## Credits
 - Inspired by KDE Plasma and the Breeze visual style
 - Icons and design by the KDE community
+- Certain color scheme designs by Canonical's Yaru team, the openSUSE community, and the Catppuccin community.
