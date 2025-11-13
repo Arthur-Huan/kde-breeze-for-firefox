@@ -1,0 +1,21 @@
+/* Default to Catppuccin Latte Rosewater for light mode */
+
+@media (prefers-color-scheme: light) {
+    /* Override colors */
+    :root {
+		--kde-hover-decoration: rgba(230, 69, 83, 0.3);
+        --kde-view-background: #eff1f5;
+        --kde-window-background: #e6e9ef;
+    }
+}
+
+/* Catppuccin Macchiato Rosewater variant */
+
+@media (prefers-color-scheme: dark) {
+    /* Override colors */
+    :root {
+        --kde-hover-decoration: rgba(238, 153, 160, 0.3);
+        --kde-view-background: #24273a;
+        --kde-window-background: #1e2030;
+    }
+}
