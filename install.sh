@@ -126,9 +126,9 @@ if [[ -n "$COLOR" ]]; then
 fi
 
 if [[ -n "$COLOR" ]]; then
-  INSTALL_CONFIRMATION_PROMPT="Proceed with installing the $COLOR color variant of the KDE Breeze for Firefox style? (y/N) "
+  INSTALL_CONFIRMATION_PROMPT="Install the '$COLOR' color variant of the KDE Breeze for Firefox style? [y/N] "
 else
-  INSTALL_CONFIRMATION_PROMPT="Proceed with installing the KDE Breeze for Firefox style? (y/N) "
+  INSTALL_CONFIRMATION_PROMPT="Install the KDE Breeze for Firefox style? [y/N] "
 fi
 
 read -p "$INSTALL_CONFIRMATION_PROMPT" response
