@@ -1,15 +1,15 @@
-@import "kde-breeze.css";
+/* Green variant */
 
 @media (prefers-color-scheme: light) {
 	/* Override colors */
 	:root {
-		--kde-hover-decoration: rgba(245, 245, 81, 0.3);
+		--kde-hover-decoration: rgba(72, 180, 72, 0.3);
 	}
 }
 
 @media (prefers-color-scheme: dark) {
 	/* Override colors */
 	:root {
-		--kde-hover-decoration: rgba(245, 245, 81, 0.3);
+		--kde-hover-decoration: rgba(72, 180, 72, 0.3);
 	}
 }

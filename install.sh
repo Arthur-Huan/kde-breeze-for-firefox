@@ -13,7 +13,7 @@ show_help() {
 
 COLOR=""
 # Supported color variants
-SUPPORTED_COLORS=(green purple red suse ubuntu yellow)
+SUPPORTED_COLORS=(green purple red opensuse ubuntu yellow)
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -127,7 +127,7 @@ echo "CSS files and icons have been copied."
 
 # 5. Apply color variant (if applicable) snippet to the end of kde-breeze.css
 if [[ -n "$COLOR" ]]; then
-  SOURCE_FILE="colors/kde-breeze-colors-$COLOR.css"
+  SOURCE_FILE="colors/$COLOR.css"
   TARGET_FILE="$CHROME_DIR/kde-breeze.css"
 
   if [[ -f "$SOURCE_FILE" ]]; then

@@ -1,15 +1,15 @@
-@import "kde-breeze.css";
+/* openSUSE colors variant */
 
 @media (prefers-color-scheme: light) {
 	/* Override colors */
 	:root {
-		--kde-hover-decoration: rgba(233, 84, 32, 0.3);
+		--kde-hover-decoration: rgba(53, 185, 171, 0.3);
 	}
 }
 
 @media (prefers-color-scheme: dark) {
 	/* Override colors */
 	:root {
-		--kde-hover-decoration: rgba(233, 84, 32, 0.3);
+		--kde-hover-decoration: rgba(0, 164, 137, 0.3);
 	}
 }
