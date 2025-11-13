@@ -3,22 +3,39 @@
 
 set -e
 
+show_help() {
+    echo "Usage: $0 [--color <value>] [--help]"
+    echo
+    echo "Options:"
+    echo "  --color <value>   Apply a color variant"
+    echo "  --help            Display this help message"
+}
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --color)
+            if [[ -z $2 || $2 == -* ]]; then
+                echo "Error: --color requires a value"
+                exit 1
+            fi
+            COLOR="$2"
+            shift 2
+            ;;
+        --help)
+            show_help
+            exit 0
+            ;;
+        *)
+            echo "Error: Unrecognized argument '$1'"
+            exit 1
+            ;;
+    esac
+done
+
 # Supported colors
 SUPPORTED_COLORS=(green purple red suse ubuntu yellow)
 COLOR=""
-
-# Parse --color argument
-while [[ $# -gt 0 ]]; do
-  case $1 in
-    --color)
-      COLOR="$2"
-      shift 2
-      ;;
-    *)
-      shift
-      ;;
-  esac
-done
 
 # Validate color if provided
 if [[ -n "$COLOR" ]]; then
@@ -34,6 +51,25 @@ if [[ -n "$COLOR" ]]; then
     exit 1
   fi
 fi
+
+if [[ -n "$COLOR" ]]; then
+  INSTALL_CONFIRMATION_PROMPT="Proceed with installing the $COLOR color variant of the KDE Breeze for Firefox style? (y/N) "
+else
+  INSTALL_CONFIRMATION_PROMPT="Proceed with installing the KDE Breeze for Firefox style (y/N) "
+fi
+
+read -p "$INSTALL_CONFIRMATION_PROMPT" response
+case "$response" in
+    [yY])
+        echo "Proceeding..."
+        sleep 0.5
+        ;;
+    *)
+        echo "Exiting."
+        exit 0
+        ;;
+esac
+
 
 # 1. Find the default Firefox profile directory
 # First, find path of .mozilla
