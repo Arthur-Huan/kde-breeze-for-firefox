@@ -11,6 +11,10 @@ show_help() {
     echo "  --help            Display this help message"
 }
 
+COLOR=""
+# Supported color variants
+SUPPORTED_COLORS=(green purple red suse ubuntu yellow)
+
 # Parse arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -33,10 +37,6 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Supported colors
-SUPPORTED_COLORS=(green purple red suse ubuntu yellow)
-COLOR=""
-
 # Validate color if provided
 if [[ -n "$COLOR" ]]; then
   FOUND=0
@@ -55,7 +55,7 @@ fi
 if [[ -n "$COLOR" ]]; then
   INSTALL_CONFIRMATION_PROMPT="Proceed with installing the $COLOR color variant of the KDE Breeze for Firefox style? (y/N) "
 else
-  INSTALL_CONFIRMATION_PROMPT="Proceed with installing the KDE Breeze for Firefox style (y/N) "
+  INSTALL_CONFIRMATION_PROMPT="Proceed with installing the KDE Breeze for Firefox style? (y/N) "
 fi
 
 read -p "$INSTALL_CONFIRMATION_PROMPT" response

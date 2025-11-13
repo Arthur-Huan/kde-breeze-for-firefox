@@ -208,6 +208,14 @@
     #appMenu-fullscreen-button2 {
         list-style-image: url("breeze-icons/22/view-fullscreen.svg") !important;
     }
+    
+    /* =========================
+     * Misc
+     * ========================= */
+
+    button.downloadButton.downloadIconShow .button-icon {
+        list-style-image: url("breeze-icons/22/folder.svg") !important;
+    }
 }
 
 
@@ -415,6 +423,14 @@
 
     #appMenu-fullscreen-button2 {
         list-style-image: url("breeze-dark-icons/22/view-fullscreen.svg") !important;
+    }
+    
+    /* =========================
+     * Misc
+     * ========================= */
+
+    button.downloadButton.downloadIconShow .button-icon {
+        list-style-image: url("breeze-dark-icons/22/folder.svg") !important;
     }
 }
 
