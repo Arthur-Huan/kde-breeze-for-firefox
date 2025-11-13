@@ -3,14 +3,6 @@
 
 set -e
 
-show_help() {
-    echo "Usage: $0 [--color <value>] [--help]"
-    echo
-    echo "Options:"
-    echo "  --color <value>   Apply a color variant"
-    echo "  --help            Display this help message"
-}
-
 COLOR=""
 # Supported color variants
 SUPPORTED_COLORS=(
@@ -24,7 +16,73 @@ SUPPORTED_COLORS=(
     catppuccin-frappe
     catppuccin-macchiato
     catppuccin-mocha
+    catppuccin-frappe-blue
+    catppuccin-frappe-flamingo
+    catppuccin-frappe-green
+    catppuccin-frappe-lavendar
+    catppuccin-frappe-maroon
+    catppuccin-frappe-mauve
+    catppuccin-frappe-peach
+    catppuccin-frappe-pink
+    catppuccin-frappe-red
+    catppuccin-frappe-sapphire
+    catppuccin-frappe-sky
+    catppuccin-frappe-teal
+    catppuccin-frappe-yellow
+    catppuccin-latte-blue
+    catppuccin-latte-flamingo
+    catppuccin-latte-green
+    catppuccin-latte-lavendar
+    catppuccin-latte-maroon
+    catppuccin-latte-mauve
+    catppuccin-latte-peach
+    catppuccin-latte-pink
+    catppuccin-latte-red
+    catppuccin-latte-sapphire
+    catppuccin-latte-sky
+    catppuccin-latte-teal
+    catppuccin-latte-yellow
+    catppuccin-macchiato-blue
+    catppuccin-macchiato-flamingo
+    catppuccin-macchiato-green
+    catppuccin-macchiato-lavendar
+    catppuccin-macchiato-maroon
+    catppuccin-macchiato-mauve
+    catppuccin-macchiato-peach
+    catppuccin-macchiato-pink
+    catppuccin-macchiato-red
+    catppuccin-macchiato-sapphire
+    catppuccin-macchiato-sky
+    catppuccin-macchiato-teal
+    catppuccin-macchiato-yellow
+    catppuccin-mocha-blue
+    catppuccin-mocha-flamingo
+    catppuccin-mocha-green
+    catppuccin-mocha-lavendar
+    catppuccin-mocha-maroon
+    catppuccin-mocha-mauve
+    catppuccin-mocha-peach
+    catppuccin-mocha-pink
+    catppuccin-mocha-red
+    catppuccin-mocha-sapphire
+    catppuccin-mocha-sky
+    catppuccin-mocha-teal
+    catppuccin-mocha-yellow
 )
+
+show_help() {
+    echo "Usage: $0 [--color <value>] [--help]"
+    echo
+    echo "Options:"
+    echo "  --color <value>   Apply a color variant"
+    echo "  --show-colors     Display the available color options"
+    echo "  --help            Display this help message"
+}
+
+show_supported_colors() {
+    echo "Supported colors:"
+    printf "\t%s\n" "${SUPPORTED_COLORS[@]}"
+}
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -36,6 +94,10 @@ while [[ $# -gt 0 ]]; do
             fi
             COLOR="$2"
             shift 2
+            ;;
+        --show-colors)
+            show_supported_colors
+            exit 0
             ;;
         --help)
             show_help
@@ -58,7 +120,7 @@ if [[ -n "$COLOR" ]]; then
     fi
   done
   if [[ $FOUND -eq 0 ]]; then
-    echo "Color '$COLOR' is not supported. Supported colors: ${SUPPORTED_COLORS[*]}"
+    echo "Color '$COLOR' is not supported."
     exit 1
   fi
 fi
