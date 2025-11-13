@@ -19,7 +19,7 @@
 		--kde-view-background: #141618;
 		--kde-window-background: #202326;
 		--kde-hover-decoration: rgba(147, 206, 233, 0.3);
-		--kde-tab-active: #202326;
+		--kde-tab-active: var(--kde-window-background);
 		--kde-tab-inactive: #1b1d20;
 		--kde-tab-hover: var(--kde-hover-decoration);
 		--kde-tab-text: #fcfcfc;
