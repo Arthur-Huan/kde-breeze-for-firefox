@@ -36,15 +36,33 @@ if [[ -n "$COLOR" ]]; then
 fi
 
 # 1. Find the default Firefox profile directory
-FIREFOX_DIR="$HOME/.mozilla/firefox"
-PROFILE=$(grep 'Path=' "$FIREFOX_DIR/profiles.ini" | head -n1 | cut -d'=' -f2)
-PROFILE_DIR="$FIREFOX_DIR/$PROFILE"
-CHROME_DIR="$PROFILE_DIR/chrome"
-
-if [ ! -d "$PROFILE_DIR" ]; then
-  echo "Could not find Firefox profile directory. Exiting."
-  exit 1
+# First, find path of .mozilla
+POSSIBLE_DIRS=(
+    "$HOME/.mozilla/firefox"
+    "$HOME/snap/firefox/common/.mozilla/firefox"
+    "$HOME/.var/app/org.mozilla.firefox/.mozilla/firefox"
+)
+FIREFOX_DIR_PATH=""
+for DIR in "${POSSIBLE_DIRS[@]}"; do
+    if [[ -d "$DIR" ]]; then
+        FIREFOX_DIR_PATH="$DIR"
+        break
+    fi
+done
+if [[ -z "$FIREFOX_DIR_PATH" ]]; then
+    echo "Couldn't determine the location of the Firefox data directory."
+    exit 1
 fi
+# Next, search for the default profile in profiles.ini
+PROFILES_INI="$FIREFOX_DIR_PATH/profiles.ini"
+if [[ $(grep '\[Profile[^0]\]' "$PROFILES_INI") ]]; then
+    PROFILE_DIR=$(grep -E '^\[Profile|^Path|^Default' "$PROFILES_INI" | grep -1 '^Default=1' | grep '^Path' | cut -c6-)
+else
+    PROFILE_DIR=$(grep 'Path=' "$PROFILES_INI" | sed 's/^Path=//')
+fi
+PROFILE_DIR="$FIREFOX_DIR_PATH/$PROFILE_DIR"
+echo "Using Firefox profile directory: $PROFILE_DIR"
+
 
 # 2. Ensure toolkit.legacyUserProfileCustomizations.stylesheets is enabled
 PREF_FILE="$PROFILE_DIR/user.js"
@@ -54,50 +72,64 @@ if ! grep -q 'toolkit.legacyUserProfileCustomizations.stylesheets' "$PREF_FILE" 
   echo "Enabled userChrome stylesheets in $PREF_FILE."
 fi
 
+
 # 3. Create chrome directory if it doesn't exist
-mkdir -p "$CHROME_DIR"
+CHROME_DIR="$PROFILE_DIR/chrome"
+if [ ! -d "$CHROME_DIR" ]; then
+    mkdir -p "$CHROME_DIR"
+    echo "Created directory: $CHROME_DIR"
+fi
+
 
 # 4a. Move CSS files into chrome directory
 cp kde-breeze.css kde-breeze-icons.css "$CHROME_DIR/"
-if [[ -n "$COLOR" ]]; then
-  cp "colors/kde-breeze-colors-$COLOR.css" "$CHROME_DIR/"
-fi
-
 # 4b. Copy icons directories into chrome directory
 cp -r breeze-icons "$CHROME_DIR/"
 cp -r breeze-dark-icons "$CHROME_DIR/"
+echo "CSS files and icons have been copied."
 
-# 5. Create userChrome.css if it doesn't exist
+
+# 5. Apply color variant (if applicable) snippet to the end of kde-breeze.css
+if [[ -n "$COLOR" ]]; then
+  SOURCE_FILE="colors/kde-breeze-colors-$COLOR.css"
+  TARGET_FILE="$CHROME_DIR/kde-breeze.css"
+
+  if [[ -f "$SOURCE_FILE" ]]; then
+    # Append color variant contents
+    echo "" >> "$TARGET_FILE"
+    cat "$SOURCE_FILE" >> "$TARGET_FILE"
+    echo "Successfully appended color variant '$COLOR' to $TARGET_FILE"
+  else
+    echo "Warning: Color variant file '$SOURCE_FILE' not found — skipping."
+  fi
+fi
+
+
+# 6. Create userChrome.css if it doesn't exist
 USERCHROME="$CHROME_DIR/userChrome.css"
 if [ ! -f "$USERCHROME" ]; then
   touch "$USERCHROME"
+  echo "Created userChrome.css at $USERCHROME"
 fi
 
-# 6. Remove any lines containing kde-breeze*.css and add new imports
-if [ -s "$USERCHROME" ]; then
-  # Remove any lines that contain kde-breeze*.css
-  sed -i '/kde-breeze.*\.css/d' "$USERCHROME"
-fi
 
-# Build the import statements
-if [[ -n "$COLOR" ]]; then
-  IMPORTS="$IMPORTS
-@import \"kde-breeze-colors-$COLOR.css\";"
-else
-  IMPORTS="$IMPORTS
-@import \"kde-breeze.css\";"
-fi
-IMPORTS='@import "kde-breeze-icons.css";'
-
-# Write the import statements
+# 7. Add imports to userChrome.css
+# First, remove any previous imports, including past obsolete files
+sed -i '/kde-breeze\.css/d;
+      /kde-breeze-icons\.css/d;
+      /kde-breeze-colors-.*\.css/d' "$USERCHROME"
+# Next, prepend the imports
+IMPORT_BLOCK='@import "kde-breeze.css";
+@import "kde-breeze-icons.css";'
 TEMP_FILE=$(mktemp)
-echo "$IMPORTS" > "$TEMP_FILE"
-if [ -s "$USERCHROME" ]; then
-  echo "" >> "$TEMP_FILE"  # Add blank line separator
-  cat "$USERCHROME" >> "$TEMP_FILE"
-fi
+echo "$IMPORT_BLOCK" > "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"  # Blank line
+cat "$USERCHROME" >> "$TEMP_FILE"
 mv "$TEMP_FILE" "$USERCHROME"
-echo "Added KDE Breeze imports to $USERCHROME."
+echo "Imports added to $USERCHROME"
 
+
+echo ""
 echo "KDE Breeze theme installation completed successfully! \
 Please restart Firefox for the changes to take effect."
+

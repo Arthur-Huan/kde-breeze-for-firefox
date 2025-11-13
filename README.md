@@ -11,10 +11,6 @@ A Firefox theme that emulates KDE's Breeze style in Firefox. This project provid
 - `kde-breeze.css`: Main Breeze theme for Firefox
 - `kde-breeze-icons.css`: Breeze-inspired icons for Firefox
 
-Color variants: Add alongside the previous two files for different colors
-
-- `kde-breeze-colors-green.css`
-
 ## Installation
 
 ### Method 1 - Automatic installation:
@@ -32,7 +28,6 @@ Color variants: Add alongside the previous two files for different colors
    ```bash
    ./install.sh --color green
    ```
-   The script will copy the corresponding color CSS file (e.g., `kde-breeze-colors-green.css`) in addition to the main theme files.
 
 ### Method 2 - Manual configuration:
 
@@ -47,9 +42,10 @@ Color variants: Add alongside the previous two files for different colors
 **Apply the theme**
 
 1. Copy the desired CSS file(s) from this repository into the `chrome` folder
-2. Import the css files in `userChrome.css`.
-   * For normal installation, import both `kde-breeze.css` and `kde-breeze-icons.css`.
-   * For color variants, import the color variant's css file along with `kde-breeze-icons.css`.
+2. Import the `kde-breeze.css` and `kde-breeze-icons.css` css files in `userChrome.css`.
+3. (Optional) Apply color variants:
+      * Copy the snippets in the colors css files to the end of the `kde-breeze.css` file
+      * Alternatively, edit the root variables in `kde-breeze.css` with the preferred tweaks
 3. Copy the `breeze-icons` and `breeze-dark-icons` folders into the `chrome` folder
 4. Restart Firefox to apply the theme.
 
