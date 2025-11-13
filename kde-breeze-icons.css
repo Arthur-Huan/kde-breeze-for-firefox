@@ -1,5 +1,4 @@
-.toolbarbutton-1 .toolbarbutton-icon,
-#downloads-button > stack:nth-child(1) {
+.toolbarbutton-1 .toolbarbutton-icon {
 	padding: 4px !important;
 }
 
