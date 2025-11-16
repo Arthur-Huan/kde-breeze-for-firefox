@@ -179,6 +179,26 @@
 	color: var(--kde-tab-text) !important;
 }
 
+/* Close tab button */
+.tab-close-button {
+	padding: 1px !important;
+	height: 18px !important;
+	width: 18px !important;
+}
+.tab-close-button:hover {
+	background: rgba(229, 57, 53, 0.3) !important;
+	border-radius: 50% !important;
+	box-shadow: none !important;
+}
+.tab-close-button:active {
+	background: rgba(205, 74, 74) !important;
+	border-radius: 50% !important;
+	box-shadow: none !important;
+	fill: white !important;
+	-moz-context-properties: fill !important;
+}
+
+/* New tab button */
 #tabs-newtab-button {
 	margin-top: -6px !important;
 }
