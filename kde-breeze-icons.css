@@ -130,7 +130,8 @@
         list-style-image: url("breeze-icons/22/settings-configure.svg") !important;
     }
 
-    #forget-button .toolbarbutton-icon {
+    #forget-button .toolbarbutton-icon,
+    #panic-button .toolbarbutton-icon {
         list-style-image: url("breeze-icons/22/edit-clear-history.svg") !important;
     }
 
@@ -346,7 +347,8 @@
         list-style-image: url("breeze-dark-icons/22/settings-configure.svg") !important;
     }
 
-    #forget-button .toolbarbutton-icon {
+    #forget-button .toolbarbutton-icon,
+    #panic-button .toolbarbutton-icon {
         list-style-image: url("breeze-dark-icons/22/edit-clear-history.svg") !important;
     }
 
