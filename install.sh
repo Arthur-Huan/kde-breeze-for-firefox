@@ -3,71 +3,13 @@
 
 set -e
 
-COLOR=""
 # Supported color variants
-SUPPORTED_COLORS=(
-    green
-    purple
-    red
-    opensuse
-    ubuntu
-    yellow
-    catppuccin-latte
-    catppuccin-frappe
-    catppuccin-macchiato
-    catppuccin-mocha
-    catppuccin-frappe-blue
-    catppuccin-frappe-flamingo
-    catppuccin-frappe-green
-    catppuccin-frappe-lavendar
-    catppuccin-frappe-maroon
-    catppuccin-frappe-mauve
-    catppuccin-frappe-peach
-    catppuccin-frappe-pink
-    catppuccin-frappe-red
-    catppuccin-frappe-sapphire
-    catppuccin-frappe-sky
-    catppuccin-frappe-teal
-    catppuccin-frappe-yellow
-    catppuccin-latte-blue
-    catppuccin-latte-flamingo
-    catppuccin-latte-green
-    catppuccin-latte-lavendar
-    catppuccin-latte-maroon
-    catppuccin-latte-mauve
-    catppuccin-latte-peach
-    catppuccin-latte-pink
-    catppuccin-latte-red
-    catppuccin-latte-sapphire
-    catppuccin-latte-sky
-    catppuccin-latte-teal
-    catppuccin-latte-yellow
-    catppuccin-macchiato-blue
-    catppuccin-macchiato-flamingo
-    catppuccin-macchiato-green
-    catppuccin-macchiato-lavendar
-    catppuccin-macchiato-maroon
-    catppuccin-macchiato-mauve
-    catppuccin-macchiato-peach
-    catppuccin-macchiato-pink
-    catppuccin-macchiato-red
-    catppuccin-macchiato-sapphire
-    catppuccin-macchiato-sky
-    catppuccin-macchiato-teal
-    catppuccin-macchiato-yellow
-    catppuccin-mocha-blue
-    catppuccin-mocha-flamingo
-    catppuccin-mocha-green
-    catppuccin-mocha-lavendar
-    catppuccin-mocha-maroon
-    catppuccin-mocha-mauve
-    catppuccin-mocha-peach
-    catppuccin-mocha-pink
-    catppuccin-mocha-red
-    catppuccin-mocha-sapphire
-    catppuccin-mocha-sky
-    catppuccin-mocha-teal
-    catppuccin-mocha-yellow
+mapfile -t SUPPORTED_COLORS < supported_colors.txt
+
+POSSIBLE_DIRS=(
+    "$HOME/.mozilla/firefox"
+    "$HOME/snap/firefox/common/.mozilla/firefox"
+    "$HOME/.var/app/org.mozilla.firefox/.mozilla/firefox"
 )
 
 show_help() {
@@ -84,6 +26,7 @@ show_supported_colors() {
     printf "\t%s\n" "${SUPPORTED_COLORS[@]}"
 }
 
+COLOR=""
 # Parse arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -125,6 +68,9 @@ if [[ -n "$COLOR" ]]; then
   fi
 fi
 
+
+
+# Installation confirmation
 if [[ -n "$COLOR" ]]; then
   INSTALL_CONFIRMATION_PROMPT="Install the '$COLOR' color variant of the KDE Breeze for Firefox style? [y/N] "
 else
@@ -146,11 +92,7 @@ esac
 
 # 1. Find the default Firefox profile directory
 # First, find path of .mozilla
-POSSIBLE_DIRS=(
-    "$HOME/.mozilla/firefox"
-    "$HOME/snap/firefox/common/.mozilla/firefox"
-    "$HOME/.var/app/org.mozilla.firefox/.mozilla/firefox"
-)
+
 FIREFOX_DIR_PATH=""
 for DIR in "${POSSIBLE_DIRS[@]}"; do
     if [[ -d "$DIR" ]]; then
