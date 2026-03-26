@@ -28,6 +28,10 @@
 	}
 }
 
+:root {
+	--corner-radius: 5px;
+}
+
 /* ==============================
 	* Style the navbar and urlbar
 	* ============================== */
@@ -42,13 +46,14 @@
 	border: 1px solid var(--kde-border-color) !important;
 	margin-top: 2px !important;
 	margin-bottom: 4px !important;
-	border-radius: 4px !important;
+	border-radius: var(--corner-radius) !important;
 	min-height: 32px !important;
 	max-height: 32px !important;
 }
 #urlbar .urlbar-background {
 	background: var(--kde-view-background) !important;
 	box-shadow: none !important;
+	border-radius: var(--corner-radius) !important;
 }
 #urlbar .urlbar-input-box,
 #urlbar:not([open]) .urlbar-input-container {
@@ -142,13 +147,13 @@
 	max-height: 32px !important;
 	min-width: 0px !important;
 	box-shadow: none !important;
-	border-radius: 4px 4px 0px 0px !important;
 	margin-inline-start: 0 !important;
 	margin-inline-end: 0 !important;
 	padding-inline: 0 !important;
 }
 .tab-background {
   box-shadow: none !important;
+  border-radius: var(--corner-radius) var(--corner-radius) 0px 0px !important;
 }
 .tabbrowser-tab .tab-content {
 	margin-top: -8px !important;
@@ -222,8 +227,8 @@
 menuitem,
 menu {
 	border: 1px solid transparent !important; /* Persistent border for spacing */
-	border-radius: 4px !important;
-	padding-block: 4px !important;  /* Vertical padding */
+	border-radius: var(--corner-radius) !important;
+	padding-block: 5px !important;  /* Vertical padding */
 	padding-inline: 8px !important; /* Horizontal padding */
 	margin-block: 0px !important;   /* Vertical margin */
 }
@@ -253,7 +258,7 @@ menu {
 /* Shared for all states */
 .toolbarbutton-1 .toolbarbutton-icon,
 #downloads-button > stack:nth-child(1) {
-	border-radius: 4px !important;
+	border-radius: var(--corner-radius) !important;
 	border: 1px solid transparent !important;  /* Persistent border for spacing */
 	padding: 6px !important;
 	background: none !important;
