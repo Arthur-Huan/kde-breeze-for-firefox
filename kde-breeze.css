@@ -204,10 +204,12 @@
 }
 
 /* New tab button */
-#tabs-newtab-button {
+#tabs-newtab-button,
+#new-tab-button {
 	margin-top: -6px !important;
 }
-#tabs-newtab-button .toolbarbutton-icon {
+#tabs-newtab-button .toolbarbutton-icon,
+#new-tab-button .toolbarbutton-icon {
 	max-width: 20px !important;
 	max-height: 22px !important;
 	padding: 2px !important;
@@ -338,8 +340,10 @@ menu {
 	padding: 6px !important;
 	margin: -6px !important;
 }
-/* Downloads button */
-#downloads-button > stack:nth-child(1) {
+
+/* Other buttons */
+#downloads-button > stack:nth-child(1),
+#firefox-view-button > image:nth-child(1) {
 	height: 32px !important;
 	width: 32px !important;
 	padding: 6px !important;
