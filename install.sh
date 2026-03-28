@@ -17,6 +17,7 @@ show_help() {
     echo
     echo "Options:"
     echo "  --color <value>   Apply a color variant"
+    echo "  --skip-icons      Skip installing Breeze icons for Firefox"
     echo "  --show-colors     Display the available color options"
     echo "  --help            Display this help message"
 }
@@ -27,6 +28,7 @@ show_supported_colors() {
 }
 
 COLOR=""
+SKIP_ICONS=false
 # Parse arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -37,6 +39,10 @@ while [[ $# -gt 0 ]]; do
             fi
             COLOR="$2"
             shift 2
+            ;;
+        --skip-icons)
+            SKIP_ICONS=true
+            shift 1
             ;;
         --show-colors)
             show_supported_colors
@@ -134,10 +140,15 @@ fi
 
 # 4a. Move CSS files into chrome directory
 cp kde-breeze.css kde-breeze-icons.css "$CHROME_DIR/"
-# 4b. Copy icons directories into chrome directory
-cp -r breeze-icons "$CHROME_DIR/"
-cp -r breeze-dark-icons "$CHROME_DIR/"
-echo "CSS files and icons have been copied."
+echo "CSS files have been copied."
+# 4b. Copy icons directories into chrome directory if SKIP_ICONS=false
+if $SKIP_ICONS; then
+    echo "Skipped icons."
+else
+    cp -r breeze-icons "$CHROME_DIR/"
+    cp -r breeze-dark-icons "$CHROME_DIR/"
+    echo "Icons have been copied."
+fi
 
 
 # 5. Apply color variant (if applicable) snippet to the end of kde-breeze.css
