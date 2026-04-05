@@ -13,7 +13,7 @@ POSSIBLE_DIRS=(
 )
 
 show_help() {
-    echo "Usage: $0 [--color <value>] [--help]"
+    echo "Usage: $0 [--color <value>] [--skip-icons] [--dir <path>] [--show-colors] [--help]"
     echo
     echo "Options:"
     echo "  --color <value>   Apply a color variant"
