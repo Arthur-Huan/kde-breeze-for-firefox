@@ -9,6 +9,7 @@ mapfile -t SUPPORTED_COLORS < supported_colors.txt
 POSSIBLE_DIRS=(
     "$HOME/.mozilla/firefox"
     "$HOME/snap/firefox/common/.mozilla/firefox"
+    "$HOME/.var/app/org.mozilla.firefox/config/mozilla/firefox"
     "$HOME/.var/app/org.mozilla.firefox/.mozilla/firefox"
 )
 

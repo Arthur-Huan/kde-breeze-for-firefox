@@ -7,6 +7,7 @@ POSSIBLE_DIRS=(
     "$HOME/.mozilla/firefox"
     "$HOME/snap/firefox/common/.mozilla/firefox"
     "$HOME/.var/app/org.mozilla.firefox/config/mozilla/firefox"
+    "$HOME/.var/app/org.mozilla.firefox/.mozilla/firefox"
 )
 
 show_help() {
