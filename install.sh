@@ -18,6 +18,7 @@ show_help() {
     echo "Options:"
     echo "  --color <value>   Apply a color variant"
     echo "  --skip-icons      Skip installing Breeze icons for Firefox"
+    echo "  --dir <path>      Specify a custom Firefox profile directory"
     echo "  --show-colors     Display the available color options"
     echo "  --help            Display this help message"
 }
@@ -29,6 +30,7 @@ show_supported_colors() {
 
 COLOR=""
 SKIP_ICONS=false
+FIREFOX_DIR_PATH=""
 # Parse arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -51,6 +53,14 @@ while [[ $# -gt 0 ]]; do
         --help)
             show_help
             exit 0
+            ;;
+        --dir)
+            if [[ -z $2 || $2 == -* ]]; then
+                echo "Error: --dir requires a value"
+                exit 1
+            fi
+            FIREFOX_DIR_PATH="$2"
+            shift 2
             ;;
         *)
             echo "Error: Unrecognized argument '$1'"
@@ -86,11 +96,10 @@ fi
 read -p "$INSTALL_CONFIRMATION_PROMPT" response
 case "$response" in
     [yY])
-        echo "Proceeding..."
         sleep 0.5
         ;;
     *)
-        echo "Exiting."
+        echo "Installation aborted."
         exit 0
         ;;
 esac
@@ -99,26 +108,45 @@ esac
 # 1. Find the default Firefox profile directory
 # First, find path of .mozilla
 
-FIREFOX_DIR_PATH=""
-for DIR in "${POSSIBLE_DIRS[@]}"; do
-    if [[ -d "$DIR" ]]; then
-        FIREFOX_DIR_PATH="$DIR"
-        break
+if [[ -n "$FIREFOX_DIR_PATH" ]]; then
+    if [[ ! -d "$FIREFOX_DIR_PATH" ]]; then
+        echo "Provided Firefox directory '$FIREFOX_DIR_PATH' does not exist."
+        exit 1
     fi
-done
-if [[ -z "$FIREFOX_DIR_PATH" ]]; then
-    echo "Couldn't determine the location of the Firefox data directory."
-    exit 1
-fi
-# Next, search for the default profile in profiles.ini
-PROFILES_INI="$FIREFOX_DIR_PATH/profiles.ini"
-if [[ $(grep '\[Profile[^0]\]' "$PROFILES_INI") ]]; then
-    PROFILE_DIR=$(grep -E '^\[Profile|^Path|^Default' "$PROFILES_INI" | grep -1 '^Default=1' | grep '^Path' | cut -c6-)
 else
-    PROFILE_DIR=$(grep 'Path=' "$PROFILES_INI" | sed 's/^Path=//')
+    # No directory was provided, search common locations for profile directory
+    for DIR in "${POSSIBLE_DIRS[@]}"; do
+        if [[ -d "$DIR" ]]; then
+            FIREFOX_DIR_PATH="$DIR"
+            break
+        fi
+    done
+    if [[ -z "$FIREFOX_DIR_PATH" ]]; then
+        echo "Couldn't determine the location of the Firefox data directory."
+        exit 1
+    fi
+    # Next, search for the default profile in profiles.ini
+    PROFILES_INI="$FIREFOX_DIR_PATH/profiles.ini"
+    if [[ $(grep '\[Profile[^0]\]' "$PROFILES_INI") ]]; then
+        PROFILE_DIR=$(grep -E '^\[Profile|^Path|^Default' "$PROFILES_INI" | grep -1 '^Default=1' | grep '^Path' | cut -c6-)
+    else
+        PROFILE_DIR=$(grep 'Path=' "$PROFILES_INI" | sed 's/^Path=//')
+    fi
 fi
+
 PROFILE_DIR="$FIREFOX_DIR_PATH/$PROFILE_DIR"
-echo "Using Firefox profile directory: $PROFILE_DIR"
+read -p "Using Firefox profile directory: $PROFILE_DIR. Continue? [y/N] " confirm_profile
+case "$confirm_profile" in
+  [yY])
+    echo "Proceeding..."
+    echo ""
+    sleep 0.5
+    ;;
+  *)
+    echo "Installation aborted."
+    exit 0
+    ;;
+esac
 
 
 # 2. Ensure toolkit.legacyUserProfileCustomizations.stylesheets is enabled
@@ -194,4 +222,3 @@ echo "Imports added to $USERCHROME"
 echo ""
 echo "KDE Breeze theme installation completed successfully! \
 Please restart Firefox for the changes to take effect."
-
