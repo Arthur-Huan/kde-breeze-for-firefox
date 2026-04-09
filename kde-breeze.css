@@ -1,226 +1,226 @@
 @media (prefers-color-scheme: light) {
-	:root {
-		--kde-accent: accentcolor;
-		--kde-view-background: #fcfcfc;
-		--kde-window-background: #eff0f1;
-		--kde-hover-decoration: rgba(147, 206, 233, 0.3);
-		--kde-tab-active: var(--kde-window-background);
-		--kde-tab-inactive: #bdc3c7;
-		--kde-tab-hover: var(--kde-hover-decoration);
-		--kde-tab-text: #232627;
-		--kde-border-color: #bdc3c7;
-		--toolbar-bgcolor: var(--kde-window-background) !important;
-	}
+    :root {
+        --kde-accent: accentcolor;
+        --kde-view-background: #fcfcfc;
+        --kde-window-background: #eff0f1;
+        --kde-hover-decoration: rgba(147, 206, 233, 0.3);
+        --kde-tab-active: var(--kde-window-background);
+        --kde-tab-inactive: #bdc3c7;
+        --kde-tab-hover: var(--kde-hover-decoration);
+        --kde-tab-text: #232627;
+        --kde-border-color: #bdc3c7;
+        --toolbar-bgcolor: var(--kde-window-background) !important;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--kde-accent: accentcolor;
-		--kde-view-background: #141618;
-		--kde-window-background: #202326;
-		--kde-hover-decoration: rgba(147, 206, 233, 0.3);
-		--kde-tab-active: var(--kde-window-background);
-		--kde-tab-inactive: #1b1d20;
-		--kde-tab-hover: var(--kde-hover-decoration);
-		--kde-tab-text: #fcfcfc;
-		--kde-border-color: #535659;
-		--toolbar-bgcolor: var(--kde-window-background) !important;
-	}
+    :root {
+        --kde-accent: accentcolor;
+        --kde-view-background: #141618;
+        --kde-window-background: #202326;
+        --kde-hover-decoration: rgba(147, 206, 233, 0.3);
+        --kde-tab-active: var(--kde-window-background);
+        --kde-tab-inactive: #1b1d20;
+        --kde-tab-hover: var(--kde-hover-decoration);
+        --kde-tab-text: #fcfcfc;
+        --kde-border-color: #535659;
+        --toolbar-bgcolor: var(--kde-window-background) !important;
+    }
 }
 
 :root {
-	--corner-radius: 5px;
+    --corner-radius: 5px;
 }
 
 /* ==============================
-	* Style the navbar and urlbar
-	* ============================== */
+    * Style the navbar and urlbar
+    * ============================== */
 
 #nav-bar {
-	border-top: 1px solid var(--kde-border-color) !important;
-	background: var(--kde-window-background) !important;
-	z-index: 1 !important;  /* Lower z-index for active tab to cover up the border */
+    border-top: 1px solid var(--kde-border-color) !important;
+    background: var(--kde-window-background) !important;
+    z-index: 1 !important;  /* Lower z-index for active tab to cover up the border */
 }
 
 #urlbar {
-	border: 1px solid var(--kde-border-color) !important;
-	margin-top: 2px !important;
-	margin-bottom: 4px !important;
-	border-radius: var(--corner-radius) !important;
-	min-height: 32px !important;
-	max-height: 32px !important;
+    border: 1px solid var(--kde-border-color) !important;
+    margin-top: 2px !important;
+    margin-bottom: 4px !important;
+    border-radius: var(--corner-radius) !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
 }
 #urlbar .urlbar-background {
-	background: var(--kde-view-background) !important;
-	box-shadow: none !important;
-	border-radius: var(--corner-radius) !important;
+    background: var(--kde-view-background) !important;
+    box-shadow: none !important;
+    border-radius: var(--corner-radius) !important;
 }
 #urlbar .urlbar-input-box,
 #urlbar:not([open]) .urlbar-input-container {
-	background: var(--kde-view-background) !important;
+    background: var(--kde-view-background) !important;
 }
 #urlbar-searchmode-switcher,
 #urlbar .searchmode-switcher-chicklet {
-	background: transparent !important;
+    background: transparent !important;
 }
 
 /* Style the urlbar's dropdown when activated (e.g. by typing) */
 #urlbar[open] .urlbarView,
 #urlbar[focused="true"] .urlbarView {
-	background: var(--kde-view-background) !important;
-	box-shadow: none !important;
+    background: var(--kde-view-background) !important;
+    box-shadow: none !important;
 }
 #urlbar[open] .urlbarView,
 #urlbar[open] .urlbarView-body {
-	border: 1px solid var(--kde-border-color) !important;
-	border-radius: 0 !important;
-	box-shadow: none !important;
+    border: 1px solid var(--kde-border-color) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
 }
 /* Style each row */
 .urlbarView-row {
-	min-height: 28px !important;
-	max-height: 28px !important;
-	border-radius: 0 !important;
+    min-height: 28px !important;
+    max-height: 28px !important;
+    border-radius: 0 !important;
 }
 .urlbarView-row[aria-selected="true"] {
-	background: var(--kde-accent) !important;
-	font-weight: bold !important;
+    background: var(--kde-accent) !important;
+    font-weight: bold !important;
 }
 .urlbarView-row:hover:not([aria-selected="true"]) {
-	background: var(--kde-hover-decoration) !important;
+    background: var(--kde-hover-decoration) !important;
 }
 
 /* Workarounds to make the position consistent with when not opened */
 #urlbar[open] {
-	/* The url bar input area background */
-	min-width: 0px !important;
-	margin-left: 1px !important;
-	margin-top: 7px !important;
-	border: none !important;
+    /* The url bar input area background */
+    min-width: 0px !important;
+    margin-left: 1px !important;
+    margin-top: 7px !important;
+    border: none !important;
 }
 #urlbar[open] .urlbar-background {
-	margin-right: 11px !important;
-	margin-top: -1px !important;
-	margin-left: -1px !important;
+    margin-right: 11px !important;
+    margin-top: -1px !important;
+    margin-left: -1px !important;
 }
 
 #urlbar[open] .urlbar-input-container {
-	/* Adjust this to target the entire container (incl. input and dropdown) */
-	margin-left: -5px !important;
-	margin-top: -8px !important;
+    /* Adjust this to target the entire container (incl. input and dropdown) */
+    margin-left: -5px !important;
+    margin-top: -8px !important;
 }
 #urlbar[open] #urlbar-input {
-	/* Adjust the text input */
-	margin-left: 0px !important;
-	margin-top: 0px !important;
+    /* Adjust the text input */
+    margin-left: 0px !important;
+    margin-top: 0px !important;
 }
 #urlbar[open] .urlbar-go-button {
-	/* Adjust the "go" or "search" arrow at the end of the bar */
-	margin-right: 2px !important;
-	margin-top: 1px !important;
+    /* Adjust the "go" or "search" arrow at the end of the bar */
+    margin-right: 2px !important;
+    margin-top: 1px !important;
 }
 #urlbar[open] .urlbarView {
-	/* Adjust the suggestions dropdown */
-	border-top: none !important;
-	margin-top: -7px !important;
-	/* Below adjusts width */
-	margin-left: 0px !important;
-	margin-right: 0px !important;
+    /* Adjust the suggestions dropdown */
+    border-top: none !important;
+    margin-top: -7px !important;
+    /* Below adjusts width */
+    margin-left: 0px !important;
+    margin-right: 0px !important;
 }
 
 
 /* ==============================
-	* Style the tabs and tabs bar
-	* ============================== */
+ * Style the tabs and tabs bar
+ * ============================== */
 
 #TabsToolbar {
-	min-height: 40px !important;
-	max-height: 40px !important;
-	background: var(--kde-window-background) !important;
-	margin-bottom: -10px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+    background: var(--kde-window-background) !important;
+    margin-bottom: -10px !important;
 }
 
 .tabbrowser-tab {
-	margin-top: 2px !important;
-	margin-bottom: 0px !important;
-	min-height: 0px !important;
-	max-height: 32px !important;
-	min-width: 0px !important;
-	box-shadow: none !important;
-	margin-inline-start: 0 !important;
-	margin-inline-end: 0 !important;
-	padding-inline: 0 !important;
+    margin-top: 2px !important;
+    margin-bottom: 0px !important;
+    min-height: 0px !important;
+    max-height: 32px !important;
+    min-width: 0px !important;
+    box-shadow: none !important;
+    margin-inline-start: 0 !important;
+    margin-inline-end: 0 !important;
+    padding-inline: 0 !important;
 }
 .tab-background {
   box-shadow: none !important;
   border-radius: var(--corner-radius) var(--corner-radius) 0px 0px !important;
 }
 .tabbrowser-tab .tab-content {
-	margin-top: -8px !important;
+    margin-top: -8px !important;
 }
 .tabbrowser-tab .tab-label {
 }
 .tabbrowser-tab[fadein]:not([pinned]) {
-	/* Tabs width */
-	max-width: 250px !important;
-	min-width: 100px !important;
+    /* Tabs width */
+    max-width: 250px !important;
+    min-width: 100px !important;
 }
 
 /* Active tab */
 .tabbrowser-tab[selected="true"] .tab-background {
-	border: 1px solid var(--kde-border-color) !important;
-	background-color: var(--kde-tab-active) !important;
-	color: var(--kde-tab-text) !important;
-	/* Cover up the border drawn by the navbar, so it seems that the active tab blends into the bar */
-	z-index: 2 !important;  /* Higher z-index than navbar, cover border */
+    border: 1px solid var(--kde-border-color) !important;
+    background-color: var(--kde-tab-active) !important;
+    color: var(--kde-tab-text) !important;
+    /* Cover up the border drawn by the navbar, so it seems that the active tab blends into the bar */
+    z-index: 2 !important;  /* Higher z-index than navbar, cover border */
 }
 .tabbrowser-tab[selected="true"] .tab-content {
-	z-index: 3 !important;  /* Display tab content over teh background */
+    z-index: 3 !important;  /* Display tab content over teh background */
 }
 
 /* Inactive tabs */
 .tabbrowser-tab:not([selected="true"]) .tab-background {
-	background-color: var(--kde-tab-inactive) !important;
-	color: var(--kde-tab-text) !important;
+    background-color: var(--kde-tab-inactive) !important;
+    color: var(--kde-tab-text) !important;
 }
 
 /* Close tab button */
 .tab-close-button {
-	padding: 1px !important;
-	height: 18px !important;
-	width: 18px !important;
+    padding: 1px !important;
+    height: 18px !important;
+    width: 18px !important;
 }
 .tab-close-button:hover {
-	background: rgba(229, 57, 53, 0.3) !important;
-	border-radius: 50% !important;
-	box-shadow: none !important;
+    background: rgba(229, 57, 53, 0.3) !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
 }
 .tab-close-button:active {
-	background: rgba(205, 74, 74) !important;
-	border-radius: 50% !important;
-	box-shadow: none !important;
-	fill: white !important;
-	-moz-context-properties: fill !important;
+    background: rgba(205, 74, 74) !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+    fill: white !important;
+    -moz-context-properties: fill !important;
 }
 
 /* New tab button */
 #tabs-newtab-button,
 #new-tab-button {
-	margin-top: -6px !important;
+    margin-top: -6px !important;
 }
 #tabs-newtab-button .toolbarbutton-icon,
 #new-tab-button .toolbarbutton-icon {
-	max-width: 20px !important;
-	max-height: 22px !important;
-	padding: 2px !important;
+    max-width: 20px !important;
+    max-height: 22px !important;
+    padding: 2px !important;
 }
 
 /* ====================================================
-	* Style menus, including:
-	*   Application menu (hamburger menu)
-	*   Right-click menu (context menu)
-	*   Dropdown menus from navbar icons (e.g. library)
-	* ==================================================== */
+ * Style menus, including:
+ *   Application menu (hamburger menu)
+ *   Right-click menu (context menu)
+ *   Dropdown menus from navbar icons (e.g. library)
+ * ==================================================== */
 
 /* Shared for all states */
 .panel-subview-body > toolbarbutton,
@@ -228,67 +228,67 @@
 .menu-iconic,
 menuitem,
 menu {
-	border: 1px solid transparent !important; /* Persistent border for spacing */
-	border-radius: var(--corner-radius) !important;
-	padding-block: 5px !important;  /* Vertical padding */
-	padding-inline: 8px !important; /* Horizontal padding */
-	margin-block: 0px !important;   /* Vertical margin */
+    border: 1px solid transparent !important; /* Persistent border for spacing */
+    border-radius: var(--corner-radius) !important;
+    padding-block: 5px !important;  /* Vertical padding */
+    padding-inline: 8px !important; /* Horizontal padding */
+    margin-block: 0px !important;   /* Vertical margin */
 }
 
 /* Style hovered, active, or selected */
 :is(
-	.panel-subview-body > toolbarbutton,
-	.subviewbutton,
-	.menu-iconic,
-	menuitem,
-	menu
+    .panel-subview-body > toolbarbutton,
+    .subviewbutton,
+    .menu-iconic,
+    menuitem,
+    menu
 ):is(
-	:hover,
-	:focus,
-	:active,
-	[open],
-	[selected]
+    :hover,
+    :focus,
+    :active,
+    [open],
+    [selected]
 ) {
-	border: 1px solid var(--kde-accent) !important;
-	background-color: var(--kde-hover-decoration) !important;
+    border: 1px solid var(--kde-accent) !important;
+    background-color: var(--kde-hover-decoration) !important;
 }
 
 /* ===============================================================
-	* Style buttons (and bookmark items, which I count as buttons)
-	* =============================================================== */
+ * Style buttons (and bookmark items, which I count as buttons)
+ * =============================================================== */
 
 /* Shared for all states */
 .toolbarbutton-1 .toolbarbutton-icon,
 #downloads-button > stack:nth-child(1) {
-	border-radius: var(--corner-radius) !important;
-	border: 1px solid transparent !important;  /* Persistent border for spacing */
-	padding: 6px !important;
-	background: none !important;
-	box-shadow: none !important;
+    border-radius: var(--corner-radius) !important;
+    border: 1px solid transparent !important;  /* Persistent border for spacing */
+    padding: 6px !important;
+    background: none !important;
+    box-shadow: none !important;
 }
 #PlacesToolbarItems .bookmark-item {
-	border: 1px solid transparent !important;  /* Persistent border for spacing */
-	background: none !important;
-	box-shadow: none !important;
-	/* Adjust padding */
-	padding-top: 1px !important;
-	padding-bottom: 1px !important;
-	padding-left: 2px !important;
-	padding-right: 2px !important;
+    border: 1px solid transparent !important;  /* Persistent border for spacing */
+    background: none !important;
+    box-shadow: none !important;
+    /* Adjust padding */
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
 }
 
 /* When hovered, clicked, or active: add colored border */
 :is(
-	.toolbarbutton-1,
-	stack:nth-child(1)
+    .toolbarbutton-1,
+    stack:nth-child(1)
 ):is(
-	:hover,
-	:focus,
-	:active,
-	[open],
-	[selected]
-	[checked]
-	[aria-pressed="true"]
+    :hover,
+    :focus,
+    :active,
+    [open],
+    [selected]
+    [checked]
+    [aria-pressed="true"]
 ) .toolbarbutton-icon,
 #downloads-button:hover > stack:nth-child(1),
 #downloads-button:focus > stack:nth-child(1),
@@ -296,24 +296,24 @@ menu {
 #PlacesToolbarItems .bookmark-item:hover,
 #PlacesToolbarItems .bookmark-item:focus,
 #PlacesToolbarItems .bookmark-item:active {
-	border: 1px solid var(--kde-accent) !important;
+    border: 1px solid var(--kde-accent) !important;
 }
 
 /* When clicked or active: add fill color */
 :is(
-	.toolbarbutton-1,
-	stack:nth-child(1)
+    .toolbarbutton-1,
+    stack:nth-child(1)
 ):is(
-	:focus,
-	:active,
-	[open],
-	[selected]
+    :focus,
+    :active,
+    [open],
+    [selected]
 ) .toolbarbutton-icon,
 #PlacesToolbarItems .bookmark-item:focus,
 #PlacesToolbarItems .bookmark-item:active,
 #downloads-button:focus > stack:nth-child(1),
 #downloads-button[open] > stack:nth-child(1) {
-	background: var(--kde-hover-decoration) !important;
+    background: var(--kde-hover-decoration) !important;
 }
 
 
@@ -324,27 +324,27 @@ menu {
 
 /* Pinned addons buttons */
 :is(
-	.toolbarbutton-1[id$="-browser-action"],
-	.toolbarbutton-1[id$="-BAP"],
-	#PanelUI-menu-button,
-	#downloads-button
+    .toolbarbutton-1[id$="-browser-action"],
+    .toolbarbutton-1[id$="-BAP"],
+    #PanelUI-menu-button,
+    #downloads-button
 ) stack:nth-child(1) {
-	background: none !important;
-	box-shadow: none !important;
+    background: none !important;
+    box-shadow: none !important;
 }
 .toolbarbutton-1[id$="-browser-action"] .toolbarbutton-icon,
 .toolbarbutton-1[id$="-BAP"] .toolbarbutton-icon,
 #PanelUI-menu-button .toolbarbutton-icon {
-	height: 32px !important;
-	width: 32px !important;
-	padding: 6px !important;
-	margin: -6px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 6px !important;
+    margin: -6px !important;
 }
 
 /* Other buttons */
 #downloads-button > stack:nth-child(1),
 #firefox-view-button > image:nth-child(1) {
-	height: 32px !important;
-	width: 32px !important;
-	padding: 6px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 6px !important;
 }
