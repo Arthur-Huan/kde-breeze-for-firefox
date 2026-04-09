@@ -348,3 +348,24 @@ menu {
     width: 32px !important;
     padding: 6px !important;
 }
+
+/* ===================================
+ * Miscellaneous
+ * =================================== */
+
+hbox.private-browsing-indicator-with-label {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    max-height: 32px !important;
+}
+
+/* Buttons under "Customize Toolbar..." */
+toolbarpaletteitem > * {
+    height: 36px !important;
+}
+toolbarpaletteitem > toolbarbutton > image,
+toolbarpaletteitem > toolbarbutton > stack > image,
+toolbarpaletteitem > toolbaritem > toolbarbutton > image {
+    height: 32px !important;
+    width: 32px !important;
+}
