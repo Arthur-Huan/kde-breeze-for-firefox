@@ -230,7 +230,7 @@ menuitem,
 menu {
     border: 1px solid transparent !important; /* Persistent border for spacing */
     border-radius: var(--corner-radius) !important;
-    padding-block: 5px !important;  /* Vertical padding */
+    padding-block: 4px !important;  /* Vertical padding */
     padding-inline: 8px !important; /* Horizontal padding */
     margin-block: 0px !important;   /* Vertical margin */
 }
@@ -251,6 +251,14 @@ menu {
 ) {
     border: 1px solid var(--kde-accent) !important;
     background-color: var(--kde-hover-decoration) !important;
+}
+
+#context-navigation {
+    height: 32px !important;
+}
+
+#appMenu-fxa-status2 {
+    height: 32px !important;
 }
 
 /* ===============================================================
