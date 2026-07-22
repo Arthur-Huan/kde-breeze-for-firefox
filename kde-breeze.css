@@ -129,6 +129,10 @@
 }
 
 
+#PersonalToolbar {
+    background: var(--kde-window-background) !important;
+}
+
 /* ==============================
  * Style the tabs and tabs bar
  * ============================== */
