@@ -30,6 +30,7 @@
 
 :root {
     --corner-radius: 5px;
+    --color-accent-primary: var(--kde-accent) !important;
 }
 
 /* ==============================
@@ -171,19 +172,19 @@
 }
 
 /* Active tab */
-.tabbrowser-tab[selected="true"] .tab-background {
+.tabbrowser-tab[selected] .tab-background {
     border: 1px solid var(--kde-border-color) !important;
     background-color: var(--kde-tab-active) !important;
     color: var(--kde-tab-text) !important;
     /* Cover up the border drawn by the navbar, so it seems that the active tab blends into the bar */
     z-index: 2 !important;  /* Higher z-index than navbar, cover border */
 }
-.tabbrowser-tab[selected="true"] .tab-content {
+.tabbrowser-tab[selected] .tab-content {
     z-index: 3 !important;  /* Display tab content over teh background */
 }
 
 /* Inactive tabs */
-.tabbrowser-tab:not([selected="true"]) .tab-background {
+.tabbrowser-tab:not([selected]) .tab-background {
     background-color: var(--kde-tab-inactive) !important;
     color: var(--kde-tab-text) !important;
 }
@@ -328,8 +329,6 @@ menu {
     background: var(--kde-hover-decoration) !important;
 }
 
-
-
 /* ===================================
  * Workarounds for stubborn buttons
  * =================================== */
@@ -359,6 +358,15 @@ menu {
     height: 32px !important;
     width: 32px !important;
     padding: 6px !important;
+}
+
+/* Dialog buttons */
+.dialog-button-box {
+    border-radius: var(--corner-radius) !important;
+    border: 1px solid transparent !important;  /* Persistent border for spacing */
+    padding: 6px !important;
+    background: none !important;
+    box-shadow: none !important;
 }
 
 /* ===================================
