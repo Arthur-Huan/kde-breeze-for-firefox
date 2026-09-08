@@ -33,6 +33,10 @@
     --color-accent-primary: var(--kde-accent) !important;
 }
 
+* {
+    --button-background-color: var(--kde-window-background) !important;
+}
+
 /* ==============================
     * Style the navbar and urlbar
     * ============================== */
