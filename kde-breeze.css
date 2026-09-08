@@ -59,6 +59,8 @@
 #urlbar .urlbar-input-box,
 #urlbar:not([open]) .urlbar-input-container {
     background: var(--kde-view-background) !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
 }
 #urlbar-searchmode-switcher,
 #urlbar .searchmode-switcher-chicklet {
