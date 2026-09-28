@@ -141,89 +141,100 @@
 }
 
 /* ==============================
- * Style the tabs and tabs bar
+ * Style the tabs and tabs bar (horizontal tabs only)
  * ============================== */
 
-#TabsToolbar {
+#TabsToolbar:has(#tabbrowser-tabs[orient="horizontal"]) {
     min-height: 40px !important;
     max-height: 40px !important;
     background: var(--kde-window-background) !important;
     margin-bottom: -10px !important;
+
+    /* New tab button (toolbar-level one) */
+    #new-tab-button {
+        margin-top: -6px !important;
+    }
+    #new-tab-button .toolbarbutton-icon {
+        max-width: 20px !important;
+        max-height: 22px !important;
+        padding: 2px !important;
+    }
 }
 
-.tabbrowser-tab {
-    margin-top: 2px !important;
-    margin-bottom: 0px !important;
-    min-height: 0px !important;
-    max-height: 32px !important;
-    min-width: 0px !important;
-    box-shadow: none !important;
-    margin-inline-start: 0 !important;
-    margin-inline-end: 0 !important;
-    padding-inline: 0 !important;
-}
-.tab-background {
-  box-shadow: none !important;
-  border-radius: var(--corner-radius) var(--corner-radius) 0px 0px !important;
-}
-.tabbrowser-tab .tab-content {
-    margin-top: -8px !important;
-}
-.tabbrowser-tab .tab-label {
-}
-.tabbrowser-tab[fadein]:not([pinned]) {
-    /* Tabs width */
-    max-width: 250px !important;
-    min-width: 100px !important;
-}
+#tabbrowser-tabs[orient="horizontal"] {
 
-/* Active tab */
-.tabbrowser-tab[selected] .tab-background {
-    border: 1px solid var(--kde-border-color) !important;
-    background-color: var(--kde-tab-active) !important;
-    color: var(--kde-tab-text) !important;
-    /* Cover up the border drawn by the navbar, so it seems that the active tab blends into the bar */
-    z-index: 2 !important;  /* Higher z-index than navbar, cover border */
-}
-.tabbrowser-tab[selected] .tab-content {
-    z-index: 3 !important;  /* Display tab content over teh background */
-}
+    .tabbrowser-tab {
+        margin-top: 2px !important;
+        margin-bottom: 0px !important;
+        min-height: 0px !important;
+        max-height: 32px !important;
+        min-width: 0px !important;
+        box-shadow: none !important;
+        margin-inline-start: 0 !important;
+        margin-inline-end: 0 !important;
+        padding-inline: 0 !important;
+    }
 
-/* Inactive tabs */
-.tabbrowser-tab:not([selected]) .tab-background {
-    background-color: var(--kde-tab-inactive) !important;
-    color: var(--kde-tab-text) !important;
-}
+    .tab-background {
+        box-shadow: none !important;
+        border-radius: var(--corner-radius) var(--corner-radius) 0px 0px !important;
+    }
 
-/* Close tab button */
-.tab-close-button {
-    padding: 1px !important;
-    height: 18px !important;
-    width: 18px !important;
-}
-.tab-close-button:hover {
-    background: rgba(229, 57, 53, 0.3) !important;
-    border-radius: 50% !important;
-    box-shadow: none !important;
-}
-.tab-close-button:active {
-    background: rgba(205, 74, 74) !important;
-    border-radius: 50% !important;
-    box-shadow: none !important;
-    fill: white !important;
-    -moz-context-properties: fill !important;
-}
+    .tabbrowser-tab .tab-content {
+        margin-top: -8px !important;
+    }
 
-/* New tab button */
-#tabs-newtab-button,
-#new-tab-button {
-    margin-top: -6px !important;
-}
-#tabs-newtab-button .toolbarbutton-icon,
-#new-tab-button .toolbarbutton-icon {
-    max-width: 20px !important;
-    max-height: 22px !important;
-    padding: 2px !important;
+    .tabbrowser-tab[fadein]:not([pinned]) {
+        /* Tabs width */
+        max-width: 250px !important;
+        min-width: 100px !important;
+    }
+
+    /* Active tab */
+    .tabbrowser-tab[selected] .tab-background {
+        border: 1px solid var(--kde-border-color) !important;
+        background-color: var(--kde-tab-active) !important;
+        color: var(--kde-tab-text) !important;
+        z-index: 2 !important;
+    }
+    .tabbrowser-tab[selected] .tab-content {
+        z-index: 3 !important;
+    }
+
+    /* Inactive tabs */
+    .tabbrowser-tab:not([selected]) .tab-background {
+        background-color: var(--kde-tab-inactive) !important;
+        color: var(--kde-tab-text) !important;
+    }
+
+    /* Close tab button */
+    .tab-close-button {
+        padding: 1px !important;
+        height: 18px !important;
+        width: 18px !important;
+    }
+    .tab-close-button:hover {
+        background: rgba(229, 57, 53, 0.3) !important;
+        border-radius: 50% !important;
+        box-shadow: none !important;
+    }
+    .tab-close-button:active {
+        background: rgba(205, 74, 74) !important;
+        border-radius: 50% !important;
+        box-shadow: none !important;
+        fill: white !important;
+        -moz-context-properties: fill !important;
+    }
+
+    /* New tab button (inside the tab strip) */
+    #tabs-newtab-button {
+        margin-top: -6px !important;
+    }
+    #tabs-newtab-button .toolbarbutton-icon {
+        max-width: 20px !important;
+        max-height: 22px !important;
+        padding: 2px !important;
+    }
 }
 
 /* ====================================================
