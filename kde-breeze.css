@@ -38,13 +38,11 @@
 }
 
 /* ==============================
-    * Style the navbar and urlbar
-    * ============================== */
+ * Style the navbar and urlbar
+ * ============================== */
 
 #nav-bar {
-    border-top: 1px solid var(--kde-border-color) !important;
     background: var(--kde-window-background) !important;
-    z-index: 1 !important;  /* Lower z-index for active tab to cover up the border */
 }
 
 #urlbar {
@@ -140,97 +138,103 @@
  * Style the tabs and tabs bar (horizontal tabs only)
  * ============================== */
 
+/* ------ Tabs bar ------ */
 #TabsToolbar:has(#tabbrowser-tabs[orient="horizontal"]) {
-    min-height: 40px !important;
-    max-height: 40px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
     background: var(--kde-window-background) !important;
-    margin-bottom: -10px !important;
+    outline: 1px solid var(--kde-border-color) !important; /* This outline overlaps with navbar's outline. */
+    outline-offset: -1px !important;
 
-    /* New tab button (toolbar-level one) */
-    #new-tab-button {
-        margin-top: -6px !important;
+    .toolbar-items {
+        height: 100% !important;
+        margin-top: 0 !important;
+        align-items: stretch !important;
+        overflow: hidden !important;
     }
-    #new-tab-button .toolbarbutton-icon {
-        max-width: 20px !important;
-        max-height: 22px !important;
-        padding: 2px !important;
+
+    #TabsToolbar-customization-target {
+        align-items: stretch !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: 100% !important;
     }
 }
 
+/* ------ Tab strip ------ */
 #tabbrowser-tabs[orient="horizontal"] {
+    min-height: 0 !important;
+    align-self: stretch !important;
 
     .tabbrowser-tab {
-        margin-top: 2px !important;
-        margin-bottom: 0px !important;
-        min-height: 0px !important;
-        max-height: 32px !important;
-        min-width: 0px !important;
         box-shadow: none !important;
-        margin-inline-start: 0 !important;
-        margin-inline-end: 0 !important;
-        padding-inline: 0 !important;
-    }
-
-    .tab-background {
-        box-shadow: none !important;
-        border-radius: var(--corner-radius) var(--corner-radius) 0px 0px !important;
-    }
-
-    .tabbrowser-tab .tab-content {
-        margin-top: -8px !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .tabbrowser-tab[fadein]:not([pinned]) {
-        /* Tabs width */
         max-width: 250px !important;
         min-width: 100px !important;
     }
 
-    /* Active tab */
-    .tabbrowser-tab[selected] .tab-background {
+    .tab-background {
+        box-shadow: none !important;
+        border-radius: var(--tab-border-radius) var(--tab-border-radius) 0 0 !important;
+        overflow: hidden !important;  /* Clips .tab-context-line */
+        margin-block: 0 !important;
+    }
+
+    .tab-content {
+        margin: 0 !important;
+    }
+
+    .tab-context-line {
+        margin-top: 0 !important;
+        margin-left: -5% !important;
+        height: 3px !important;
+        width: 110% !important;
+    }
+}
+
+/* ------ Tabs ------ */
+#tabbrowser-tabs[orient="horizontal"] .tabbrowser-tab {
+    &[selected] .tab-background {
         border: 1px solid var(--kde-border-color) !important;
         background-color: var(--kde-tab-active) !important;
         color: var(--kde-tab-text) !important;
-        z-index: 2 !important;
-    }
-    .tabbrowser-tab[selected] .tab-content {
-        z-index: 3 !important;
     }
 
-    /* Inactive tabs */
-    .tabbrowser-tab:not([selected]) .tab-background {
+    &:not([selected]) .tab-background {
         background-color: var(--kde-tab-inactive) !important;
         color: var(--kde-tab-text) !important;
     }
+}
 
-    /* Close tab button */
-    .tab-close-button {
-        padding: 1px !important;
-        height: 18px !important;
-        width: 18px !important;
-    }
-    .tab-close-button:hover {
+#tabbrowser-tabs[orient="horizontal"] .tab-close-button {
+    padding: 1px !important;
+    height: 18px !important;
+    width: 18px !important;
+
+    &:hover {
         background: rgba(229, 57, 53, 0.3) !important;
         border-radius: 50% !important;
         box-shadow: none !important;
     }
-    .tab-close-button:active {
+
+    &:active {
         background: rgba(205, 74, 74) !important;
         border-radius: 50% !important;
         box-shadow: none !important;
         fill: white !important;
         -moz-context-properties: fill !important;
     }
+}
 
-    /* New tab button (inside the tab strip) */
-    #tabs-newtab-button {
-        margin-top: -6px !important;
-    }
-    #tabs-newtab-button .toolbarbutton-icon {
-        max-width: 20px !important;
-        max-height: 22px !important;
-        padding: 2px !important;
-    }
+#tabs-newtab-button > * {
+    width: 20px !important;
+    height: 24px !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* ====================================================
