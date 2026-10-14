@@ -28,13 +28,13 @@
     }
 }
 
-:root {
-    --corner-radius: 5px;
-    --color-accent-primary: var(--kde-accent) !important;
-}
-
 * {
-    --button-background-color: var(--kde-window-background) !important;
+    --color-accent-primary: var(--kde-accent) !important;
+
+    --border-radius-xsmall: 5px !important;
+    --border-radius-small: 5px !important;
+    --border-radius-medium: 5px !important;
+    --border-radius-xlarge: 5px !important;
 }
 
 /* ==============================
@@ -51,14 +51,12 @@
     border: 1px solid var(--kde-border-color) !important;
     margin-top: 2px !important;
     margin-bottom: 4px !important;
-    border-radius: var(--corner-radius) !important;
     min-height: 32px !important;
     max-height: 32px !important;
 }
 #urlbar .urlbar-background {
     background: var(--kde-view-background) !important;
     box-shadow: none !important;
-    border-radius: var(--corner-radius) !important;
 }
 #urlbar .urlbar-input-box,
 #urlbar:not([open]) .urlbar-input-container {
@@ -80,14 +78,12 @@
 #urlbar[open] .urlbarView,
 #urlbar[open] .urlbarView-body {
     border: 1px solid var(--kde-border-color) !important;
-    border-radius: 0 !important;
     box-shadow: none !important;
 }
 /* Style each row */
 .urlbarView-row {
     min-height: 28px !important;
     max-height: 28px !important;
-    border-radius: 0 !important;
 }
 .urlbarView-row[aria-selected="true"] {
     background: var(--kde-accent) !important;
@@ -251,7 +247,6 @@
 menuitem,
 menu {
     border: 1px solid transparent !important; /* Persistent border for spacing */
-    border-radius: var(--corner-radius) !important;
     padding-block: 4px !important;  /* Vertical padding */
     padding-inline: 8px !important; /* Horizontal padding */
     margin-block: 0px !important;   /* Vertical margin */
@@ -290,7 +285,6 @@ menu {
 /* Shared for all states */
 .toolbarbutton-1 .toolbarbutton-icon,
 #downloads-button > stack:nth-child(1) {
-    border-radius: var(--corner-radius) !important;
     border: 1px solid transparent !important;  /* Persistent border for spacing */
     padding: 6px !important;
     background: none !important;
@@ -367,6 +361,7 @@ menu {
     width: 32px !important;
     padding: 6px !important;
     margin: -6px !important;
+    border-radius: var(--button-border-radius) !important;
 }
 
 /* Other buttons */
@@ -379,7 +374,6 @@ menu {
 
 /* Dialog buttons */
 .dialog-button-box {
-    border-radius: var(--corner-radius) !important;
     border: 1px solid transparent !important;  /* Persistent border for spacing */
     padding: 6px !important;
     background: none !important;
