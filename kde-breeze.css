@@ -324,12 +324,19 @@ menu {
   box-shadow: none !important;
 }
 .toolbarbutton-1[id$="-browser-action"] .toolbarbutton-icon,
-.toolbarbutton-1[id$="-BAP"] .toolbarbutton-icon,
-#PanelUI-menu-button .toolbarbutton-icon {
+.toolbarbutton-1[id$="-BAP"] .toolbarbutton-icon {
   height: 32px !important;
   width: 32px !important;
   padding: 6px !important;
   margin: -6px !important;
+  border-radius: var(--button-border-radius) !important;
+}
+
+#PanelUI-menu-button .toolbarbutton-icon {
+  height: 32px !important;
+  width: 32px !important;
+  padding: 4px !important;
+  margin: -4px !important;
   border-radius: var(--button-border-radius) !important;
 }
 
