@@ -1,137 +1,95 @@
 @media (prefers-color-scheme: light) {
-    :root {
-        --kde-accent: accentcolor;
-        --kde-view-background: #fcfcfc;
-        --kde-window-background: #eff0f1;
-        --kde-hover-decoration: rgba(147, 206, 233, 0.3);
-        --kde-tab-active: var(--kde-window-background);
-        --kde-tab-inactive: #bdc3c7;
-        --kde-tab-hover: var(--kde-hover-decoration);
-        --kde-tab-text: #232627;
-        --kde-border-color: #bdc3c7;
-        --toolbar-bgcolor: var(--kde-window-background) !important;
-    }
+  :root {
+    --kde-accent: accentcolor;
+    --kde-view-background: #fcfcfc;
+    --kde-window-background: #eff0f1;
+    --kde-hover-decoration: rgba(147, 206, 233, 0.3);
+    --kde-tab-active: var(--kde-window-background);
+    --kde-tab-inactive: #bdc3c7;
+    --kde-tab-hover: var(--kde-hover-decoration);
+    --kde-tab-text: #232627;
+    --kde-border-color: #bdc3c7;
+    --toolbar-bgcolor: var(--kde-window-background) !important;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --kde-accent: accentcolor;
-        --kde-view-background: #141618;
-        --kde-window-background: #202326;
-        --kde-hover-decoration: rgba(147, 206, 233, 0.3);
-        --kde-tab-active: var(--kde-window-background);
-        --kde-tab-inactive: #1b1d20;
-        --kde-tab-hover: var(--kde-hover-decoration);
-        --kde-tab-text: #fcfcfc;
-        --kde-border-color: #535659;
-        --toolbar-bgcolor: var(--kde-window-background) !important;
-    }
+  :root {
+    --kde-accent: accentcolor;
+    --kde-view-background: #141618;
+    --kde-window-background: #202326;
+    --kde-hover-decoration: rgba(147, 206, 233, 0.3);
+    --kde-tab-active: var(--kde-window-background);
+    --kde-tab-inactive: #1b1d20;
+    --kde-tab-hover: var(--kde-hover-decoration);
+    --kde-tab-text: #fcfcfc;
+    --kde-border-color: #535659;
+    --toolbar-bgcolor: var(--kde-window-background) !important;
+  }
+}
+
+:root {
+  --navbar-height: 45px;
+  --urlbar-height: 32px !important;
 }
 
 * {
-    --color-accent-primary: var(--kde-accent) !important;
+  --color-accent-primary: var(--kde-accent) !important;
 
-    --border-radius-xsmall: 5px !important;
-    --border-radius-small: 5px !important;
-    --border-radius-medium: 5px !important;
-    --border-radius-xlarge: 5px !important;
+  --border-radius-xsmall: 5px !important;
+  --border-radius-small: 5px !important;
+  --border-radius-medium: 5px !important;
+  --border-radius-xlarge: 5px !important;
 }
 
 /* ==============================
- * Style the navbar and urlbar
+ * Style the navbar and bookmarks bar
  * ============================== */
 
 #nav-bar {
-    background: var(--kde-window-background) !important;
+  background: var(--kde-window-background) !important;
+  min-height: var(--navbar-height) !important;
+  max-height: var(--navbar-height) !important;
 }
-
-#urlbar {
-    border: 1px solid var(--kde-border-color) !important;
-    margin-top: 2px !important;
-    margin-bottom: 4px !important;
-    min-height: 32px !important;
-    max-height: 32px !important;
-}
-#urlbar .urlbar-background {
-    background: var(--kde-view-background) !important;
-    box-shadow: none !important;
-}
-#urlbar .urlbar-input-box,
-#urlbar:not([open]) .urlbar-input-container {
-    background: var(--kde-view-background) !important;
-    min-height: 30px !important;
-    max-height: 30px !important;
-}
-#urlbar-searchmode-switcher,
-#urlbar .searchmode-switcher-chicklet {
-    background: transparent !important;
-}
-
-/* Style the urlbar's dropdown when activated (e.g. by typing) */
-#urlbar[open] .urlbarView,
-#urlbar[focused="true"] .urlbarView {
-    background: var(--kde-view-background) !important;
-    box-shadow: none !important;
-}
-#urlbar[open] .urlbarView,
-#urlbar[open] .urlbarView-body {
-    border: 1px solid var(--kde-border-color) !important;
-    box-shadow: none !important;
-}
-/* Style each row */
-.urlbarView-row {
-    min-height: 28px !important;
-    max-height: 28px !important;
-}
-.urlbarView-row[aria-selected="true"] {
-    background: var(--kde-accent) !important;
-    font-weight: bold !important;
-}
-.urlbarView-row:hover:not([aria-selected="true"]) {
-    background: var(--kde-hover-decoration) !important;
-}
-
-/* Workarounds to make the position consistent with when not opened */
-#urlbar[open] {
-    /* The url bar input area background */
-    min-width: 0px !important;
-    margin-left: 1px !important;
-    margin-top: 7px !important;
-    border: none !important;
-}
-#urlbar[open] .urlbar-background {
-    margin-right: 11px !important;
-    margin-top: -1px !important;
-    margin-left: -1px !important;
-}
-
-#urlbar[open] .urlbar-input-container {
-    /* Adjust this to target the entire container (incl. input and dropdown) */
-    margin-left: -5px !important;
-    margin-top: -8px !important;
-}
-#urlbar[open] #urlbar-input {
-    /* Adjust the text input */
-    margin-left: 0px !important;
-    margin-top: 0px !important;
-}
-#urlbar[open] .urlbar-go-button {
-    /* Adjust the "go" or "search" arrow at the end of the bar */
-    margin-right: 2px !important;
-    margin-top: 1px !important;
-}
-#urlbar[open] .urlbarView {
-    /* Adjust the suggestions dropdown */
-    border-top: none !important;
-    margin-top: -7px !important;
-    /* Below adjusts width */
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-}
-
 
 #PersonalToolbar {
-    background: var(--kde-window-background) !important;
+  background: var(--kde-window-background) !important;
+}
+
+/* ==============================
+ * Style the address bar
+ * ============================== */
+
+/* ------ Resting address bar ------ */
+#urlbar-container,
+#urlbar {
+  --urlbar-container-height: var(--navbar-height) !important;
+  --kde-urlbar-radius: var(--border-radius-medium);
+}
+
+#urlbar .urlbar-background {
+  background: var(--kde-view-background) !important;
+  border: 1px solid var(--kde-border-color) !important;
+  border-radius: var(--kde-urlbar-radius) !important;
+  box-shadow: none !important;
+}
+
+/* ------ Open state: keep only the dropdown ------ */
+#urlbar[open] .urlbar-background,
+#urlbar[open] .urlbarView-background {
+  display: none !important;
+}
+
+/* ------ Dropdown ------ */
+#urlbar[open] .urlbarView-body-outer {
+  background: var(--kde-view-background) !important;
+  border: 1px solid var(--kde-border-color) !important;
+  border-top: none !important;
+  border-radius: 0 0 var(--kde-urlbar-radius) var(--kde-urlbar-radius) !important;
+  box-shadow: none !important;
+
+  /* Move the dropdown up to touch the urlbar */
+  margin-top: calc(-1 * (var(--navbar-height) - var(--urlbar-height)) / 2) !important;
 }
 
 /* ==============================
@@ -140,101 +98,101 @@
 
 /* ------ Tabs bar ------ */
 #TabsToolbar:has(#tabbrowser-tabs[orient="horizontal"]) {
-    min-height: 30px !important;
-    max-height: 30px !important;
-    background: var(--kde-window-background) !important;
-    outline: 1px solid var(--kde-border-color) !important; /* This outline overlaps with navbar's outline. */
-    outline-offset: -1px !important;
+  min-height: 30px !important;
+  max-height: 30px !important;
+  background: var(--kde-window-background) !important;
+  outline: 1px solid var(--kde-border-color) !important; /* This outline overlaps with navbar's outline. */
+  outline-offset: -1px !important;
 
-    .toolbar-items {
-        height: 100% !important;
-        margin-top: 0 !important;
-        align-items: stretch !important;
-        overflow: hidden !important;
-    }
+  .toolbar-items {
+    height: 100% !important;
+    margin-top: 0 !important;
+    align-items: stretch !important;
+    overflow: hidden !important;
+  }
 
-    #TabsToolbar-customization-target {
-        align-items: stretch !important;
-        height: auto !important;
-        min-height: 0 !important;
-        max-height: 100% !important;
-    }
+  #TabsToolbar-customization-target {
+    align-items: stretch !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+  }
 }
 
 /* ------ Tab strip ------ */
 #tabbrowser-tabs[orient="horizontal"] {
-    min-height: 0 !important;
-    align-self: stretch !important;
+  min-height: 0 !important;
+  align-self: stretch !important;
 
-    .tabbrowser-tab {
-        box-shadow: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
+  .tabbrowser-tab {
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
-    .tabbrowser-tab[fadein]:not([pinned]) {
-        max-width: 250px !important;
-        min-width: 100px !important;
-    }
+  .tabbrowser-tab[fadein]:not([pinned]) {
+    max-width: 250px !important;
+    min-width: 100px !important;
+  }
 
-    .tab-background {
-        box-shadow: none !important;
-        border-radius: var(--tab-border-radius) var(--tab-border-radius) 0 0 !important;
-        overflow: hidden !important;  /* Clips .tab-context-line */
-        margin-block: 0 !important;
-    }
+  .tab-background {
+    box-shadow: none !important;
+    border-radius: var(--tab-border-radius) var(--tab-border-radius) 0 0 !important;
+    overflow: hidden !important;  /* Clips .tab-context-line */
+    margin-block: 0 !important;
+  }
 
-    .tab-content {
-        margin: 0 !important;
-    }
+  .tab-content {
+    margin: 0 !important;
+  }
 
-    .tab-context-line {
-        margin-top: 0 !important;
-        margin-left: -5% !important;
-        height: 3px !important;
-        width: 110% !important;
-    }
+  .tab-context-line {
+    margin-top: 0 !important;
+    margin-left: -5% !important;
+    height: 3px !important;
+    width: 110% !important;
+  }
 }
 
 /* ------ Tabs ------ */
 #tabbrowser-tabs[orient="horizontal"] .tabbrowser-tab {
-    &[selected] .tab-background {
-        border: 1px solid var(--kde-border-color) !important;
-        background-color: var(--kde-tab-active) !important;
-        color: var(--kde-tab-text) !important;
-    }
+  &[selected] .tab-background {
+    border: 1px solid var(--kde-border-color) !important;
+    background-color: var(--kde-tab-active) !important;
+    color: var(--kde-tab-text) !important;
+  }
 
-    &:not([selected]) .tab-background {
-        background-color: var(--kde-tab-inactive) !important;
-        color: var(--kde-tab-text) !important;
-    }
+  &:not([selected]) .tab-background {
+    background-color: var(--kde-tab-inactive) !important;
+    color: var(--kde-tab-text) !important;
+  }
 }
 
 #tabbrowser-tabs[orient="horizontal"] .tab-close-button {
-    padding: 1px !important;
-    height: 18px !important;
-    width: 18px !important;
+  padding: 1px !important;
+  height: 18px !important;
+  width: 18px !important;
 
-    &:hover {
-        background: rgba(229, 57, 53, 0.3) !important;
-        border-radius: 50% !important;
-        box-shadow: none !important;
-    }
+  &:hover {
+    background: rgba(229, 57, 53, 0.3) !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+  }
 
-    &:active {
-        background: rgba(205, 74, 74) !important;
-        border-radius: 50% !important;
-        box-shadow: none !important;
-        fill: white !important;
-        -moz-context-properties: fill !important;
-    }
+  &:active {
+    background: rgba(205, 74, 74) !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+    fill: white !important;
+    -moz-context-properties: fill !important;
+  }
 }
 
 #tabs-newtab-button > * {
-    width: 20px !important;
-    height: 24px !important;
-    margin: 0 !important;
-    padding: 0 !important;
+  width: 20px !important;
+  height: 24px !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* ====================================================
@@ -250,36 +208,36 @@
 .menu-iconic,
 menuitem,
 menu {
-    border: 1px solid transparent !important; /* Persistent border for spacing */
-    padding-block: 4px !important;  /* Vertical padding */
-    padding-inline: 8px !important; /* Horizontal padding */
-    margin-block: 0px !important;   /* Vertical margin */
+  border: 1px solid transparent !important; /* Persistent border for spacing */
+  padding-block: 4px !important;  /* Vertical padding */
+  padding-inline: 8px !important; /* Horizontal padding */
+  margin-block: 0px !important;   /* Vertical margin */
 }
 
 /* Style hovered, active, or selected */
 :is(
-    .panel-subview-body > toolbarbutton,
-    .subviewbutton,
-    .menu-iconic,
-    menuitem,
-    menu
+  .panel-subview-body > toolbarbutton,
+  .subviewbutton,
+  .menu-iconic,
+  menuitem,
+  menu
 ):is(
-    :hover,
-    :focus,
-    :active,
-    [open],
-    [selected]
+  :hover,
+  :focus,
+  :active,
+  [open],
+  [selected]
 ) {
-    border: 1px solid var(--kde-accent) !important;
-    background-color: var(--kde-hover-decoration) !important;
+  border: 1px solid var(--kde-accent) !important;
+  background-color: var(--kde-hover-decoration) !important;
 }
 
 #context-navigation {
-    height: 32px !important;
+  height: 32px !important;
 }
 
 #appMenu-fxa-status2 {
-    height: 32px !important;
+  height: 32px !important;
 }
 
 /* ===============================================================
@@ -289,34 +247,34 @@ menu {
 /* Shared for all states */
 .toolbarbutton-1 .toolbarbutton-icon,
 #downloads-button > stack:nth-child(1) {
-    border: 1px solid transparent !important;  /* Persistent border for spacing */
-    padding: 6px !important;
-    background: none !important;
-    box-shadow: none !important;
+  border: 1px solid transparent !important;  /* Persistent border for spacing */
+  padding: 6px !important;
+  background: none !important;
+  box-shadow: none !important;
 }
 #PlacesToolbarItems .bookmark-item {
-    border: 1px solid transparent !important;  /* Persistent border for spacing */
-    background: none !important;
-    box-shadow: none !important;
-    /* Adjust padding */
-    padding-top: 1px !important;
-    padding-bottom: 1px !important;
-    padding-left: 2px !important;
-    padding-right: 2px !important;
+  border: 1px solid transparent !important;  /* Persistent border for spacing */
+  background: none !important;
+  box-shadow: none !important;
+  /* Adjust padding */
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
 }
 
 /* When hovered, clicked, or active: add colored border */
 :is(
-    .toolbarbutton-1,
-    stack:nth-child(1)
+  .toolbarbutton-1,
+  stack:nth-child(1)
 ):is(
-    :hover,
-    :focus,
-    :active,
-    [open],
-    [selected]
-    [checked]
-    [aria-pressed="true"]
+  :hover,
+  :focus,
+  :active,
+  [open],
+  [selected]
+  [checked]
+  [aria-pressed="true"]
 ) .toolbarbutton-icon,
 #downloads-button:hover > stack:nth-child(1),
 #downloads-button:focus > stack:nth-child(1),
@@ -324,24 +282,24 @@ menu {
 #PlacesToolbarItems .bookmark-item:hover,
 #PlacesToolbarItems .bookmark-item:focus,
 #PlacesToolbarItems .bookmark-item:active {
-    border: 1px solid var(--kde-accent) !important;
+  border: 1px solid var(--kde-accent) !important;
 }
 
 /* When clicked or active: add fill color */
 :is(
-    .toolbarbutton-1,
-    stack:nth-child(1)
+  .toolbarbutton-1,
+  stack:nth-child(1)
 ):is(
-    :focus,
-    :active,
-    [open],
-    [selected]
+  :focus,
+  :active,
+  [open],
+  [selected]
 ) .toolbarbutton-icon,
 #PlacesToolbarItems .bookmark-item:focus,
 #PlacesToolbarItems .bookmark-item:active,
 #downloads-button:focus > stack:nth-child(1),
 #downloads-button[open] > stack:nth-child(1) {
-    background: var(--kde-hover-decoration) !important;
+  background: var(--kde-hover-decoration) !important;
 }
 
 /* ===================================
@@ -350,38 +308,38 @@ menu {
 
 /* Pinned addons buttons */
 :is(
-    .toolbarbutton-1[id$="-browser-action"],
-    .toolbarbutton-1[id$="-BAP"],
-    #PanelUI-menu-button,
-    #downloads-button
+  .toolbarbutton-1[id$="-browser-action"],
+  .toolbarbutton-1[id$="-BAP"],
+  #PanelUI-menu-button,
+  #downloads-button
 ) stack:nth-child(1) {
-    background: none !important;
-    box-shadow: none !important;
+  background: none !important;
+  box-shadow: none !important;
 }
 .toolbarbutton-1[id$="-browser-action"] .toolbarbutton-icon,
 .toolbarbutton-1[id$="-BAP"] .toolbarbutton-icon,
 #PanelUI-menu-button .toolbarbutton-icon {
-    height: 32px !important;
-    width: 32px !important;
-    padding: 6px !important;
-    margin: -6px !important;
-    border-radius: var(--button-border-radius) !important;
+  height: 32px !important;
+  width: 32px !important;
+  padding: 6px !important;
+  margin: -6px !important;
+  border-radius: var(--button-border-radius) !important;
 }
 
 /* Other buttons */
 #downloads-button > stack:nth-child(1),
 #firefox-view-button > image:nth-child(1) {
-    height: 32px !important;
-    width: 32px !important;
-    padding: 6px !important;
+  height: 32px !important;
+  width: 32px !important;
+  padding: 6px !important;
 }
 
 /* Dialog buttons */
 .dialog-button-box {
-    border: 1px solid transparent !important;  /* Persistent border for spacing */
-    padding: 6px !important;
-    background: none !important;
-    box-shadow: none !important;
+  border: 1px solid transparent !important;  /* Persistent border for spacing */
+  padding: 6px !important;
+  background: none !important;
+  box-shadow: none !important;
 }
 
 /* ===================================
@@ -389,18 +347,18 @@ menu {
  * =================================== */
 
 hbox.private-browsing-indicator-with-label {
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-    max-height: 32px !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  max-height: 32px !important;
 }
 
 /* Buttons under "Customize Toolbar..." */
 toolbarpaletteitem > * {
-    height: 36px !important;
+  height: 36px !important;
 }
 toolbarpaletteitem > toolbarbutton > image,
 toolbarpaletteitem > toolbarbutton > stack > image,
 toolbarpaletteitem > toolbaritem > toolbarbutton > image {
-    height: 32px !important;
-    width: 32px !important;
+  height: 32px !important;
+  width: 32px !important;
 }
