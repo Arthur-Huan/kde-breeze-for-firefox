@@ -31,16 +31,18 @@
 :root {
   --navbar-height: 45px;
   --urlbar-height: 32px !important;
-}
-
-* {
-  --color-accent-primary: var(--kde-accent) !important;
 
   --border-radius-xsmall: 5px !important;
   --border-radius-small: 5px !important;
   --border-radius-medium: 5px !important;
   --border-radius-large: 5px !important;
   --border-radius-xlarge: 5px !important;
+}
+
+* {
+  --color-accent-primary: var(--kde-accent) !important;
+
+  --urlbar-inner-border-radius: var(--border-radius-medium) !important;
 }
 
 /* ==============================
