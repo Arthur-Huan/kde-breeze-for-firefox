@@ -99,6 +99,7 @@
   margin-top: calc(-1 * (var(--navbar-height) - var(--urlbar-height)) / 2) !important;
 }
 
+
 /* ==============================
  * Style the tabs and tabs bar (horizontal tabs only)
  * ============================== */
@@ -149,10 +150,6 @@
     margin-block: 0 !important;
   }
 
-  .tab-content {
-    margin: 0 !important;
-  }
-
   .tab-context-line {
     margin-top: 0 !important;
     margin-left: -5% !important;
@@ -165,6 +162,7 @@
 #tabbrowser-tabs[orient="horizontal"] .tabbrowser-tab {
   &[selected] .tab-background {
     border: 1px solid var(--kde-border-color) !important;
+    border-bottom: none !important;
     background-color: var(--kde-tab-active) !important;
     color: var(--kde-tab-text) !important;
   }
@@ -173,25 +171,34 @@
     background-color: var(--kde-tab-inactive) !important;
     color: var(--kde-tab-text) !important;
   }
+
+  .tab-content {
+    margin: 2px !important;
+  }
+
+  /* Center the tab label */
+  .tab-text {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
 }
 
 #tabbrowser-tabs[orient="horizontal"] .tab-close-button {
-  padding: 1px !important;
-  height: 18px !important;
-  width: 18px !important;
+  padding: 0 !important;
+  height: 16px !important;
+  width: 16px !important;
+  border-radius: 50% !important;
+  box-shadow: none !important;
+  opacity: 40% !important;
 
   &:hover {
-    background: rgba(229, 57, 53, 0.3) !important;
-    border-radius: 50% !important;
-    box-shadow: none !important;
+    background: cyan !important;
+    filter: invert(100%);
   }
 
   &:active {
-    background: rgba(205, 74, 74) !important;
-    border-radius: 50% !important;
-    box-shadow: none !important;
-    fill: white !important;
-    -moz-context-properties: fill !important;
+    opacity: 100% !important;
   }
 }
 
@@ -332,11 +339,13 @@ menu {
   border-radius: var(--button-border-radius) !important;
 }
 
+#PanelUI-menu-button {
+  margin-right: -8px !important;
+}
 #PanelUI-menu-button .toolbarbutton-icon {
   height: 32px !important;
   width: 32px !important;
   padding: 4px !important;
-  margin: -4px !important;
   border-radius: var(--button-border-radius) !important;
 }
 
