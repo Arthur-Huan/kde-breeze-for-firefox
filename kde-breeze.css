@@ -80,6 +80,13 @@
   display: none !important;
 }
 
+/* Restore the border around the url bar */
+#urlbar:is([focused], [open], :focus-within) .urlbar-input-container {
+  outline: 1px solid var(--kde-border-color) !important;
+  outline-offset: -1px !important;
+  border-radius: var(--kde-urlbar-radius) !important;
+}
+
 /* ------ Dropdown ------ */
 #urlbar[open] .urlbarView-body-outer {
   background: var(--kde-view-background) !important;
