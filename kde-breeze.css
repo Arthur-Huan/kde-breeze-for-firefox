@@ -91,6 +91,10 @@
 }
 
 /* ------ Dropdown ------ */
+#urlbar:not([open]) .urlbarView-body-outer {
+  display: none !important;
+}
+
 #urlbar[open] .urlbarView-body-outer {
   background: var(--kde-view-background) !important;
   border: 1px solid var(--kde-border-color) !important;
@@ -101,7 +105,6 @@
   /* Move the dropdown up to touch the urlbar */
   margin-top: calc(-1 * (var(--navbar-height) - var(--urlbar-height)) / 2) !important;
 }
-
 
 /* ==============================
  * Style the tabs and tabs bar (horizontal tabs only)
