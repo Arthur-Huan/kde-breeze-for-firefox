@@ -371,6 +371,22 @@ menu {
   box-shadow: none !important;
 }
 
+/* Override unified extensions dropdown buttons */
+#unified-extensions-area {
+  .unified-extensions-item-menu-button {
+    border: none !important;
+    background: none !important;
+  }
+  toolbarbutton:hover > image,
+  toolbarbutton:active > image {
+    border: 1px solid var(--kde-accent) !important;
+    background: transparent !important;
+  }
+  toolbarbutton:active >image {
+    background: var(--kde-hover-decoration) !important;
+  }
+}
+
 /* ===================================
  * Miscellaneous
  * =================================== */

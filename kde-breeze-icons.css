@@ -1,5 +1,5 @@
 .toolbarbutton-1 .toolbarbutton-icon {
-	padding: 4px !important;
+    padding: 4px !important;
 }
 
 
@@ -14,11 +14,11 @@
      * ========================= */
 
     #wrapper-new-tab-button .toolbarbutton-icon {
-    	list-style-image: url("breeze-icons/22/list-add.svg") !important;
+        list-style-image: url("breeze-icons/22/list-add.svg") !important;
     }
 
     #tabs-newtab-button .toolbarbutton-icon {
-    	list-style-image: url("breeze-icons/22/list-add.svg") !important;
+        list-style-image: url("breeze-icons/22/list-add.svg") !important;
     }
 
     .tab-close-button {
@@ -212,11 +212,11 @@
      * ========================= */
 
     #wrapper-new-tab-button .toolbarbutton-icon {
-    	list-style-image: url("breeze-dark-icons/22/list-add.svg") !important;
+        list-style-image: url("breeze-dark-icons/22/list-add.svg") !important;
     }
 
     #tabs-newtab-button .toolbarbutton-icon {
-    	list-style-image: url("breeze-dark-icons/22/list-add.svg") !important;
+        list-style-image: url("breeze-dark-icons/22/list-add.svg") !important;
     }
 
     /* =============================
@@ -407,7 +407,7 @@
     #appMenu-fullscreen-button2 {
         list-style-image: url("breeze-dark-icons/22/view-fullscreen.svg") !important;
     }
-    
+
     /* =========================
      * Misc
      * ========================= */
