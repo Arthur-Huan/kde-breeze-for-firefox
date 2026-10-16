@@ -176,13 +176,13 @@
 #urlbar-container,
 #urlbar {
   --urlbar-container-height: var(--navbar-height) !important;
-  --kde-urlbar-radius: var(--border-radius-medium);
+
 }
 
 #urlbar .urlbar-background {
   background: var(--kde-view-background) !important;
   border: 1px solid var(--kde-border-color) !important;
-  border-radius: var(--kde-urlbar-radius) !important;
+  border-radius: var(--urlbar-inner-border-radius) !important;
   box-shadow: none !important;
 }
 
@@ -196,7 +196,7 @@
 #urlbar:is([focused], [open], :focus-within) .urlbar-input-container {
   outline: 1px solid var(--kde-border-color) !important;
   outline-offset: -1px !important;
-  border-radius: var(--kde-urlbar-radius) !important;
+  border-radius: var(--urlbar-inner-border-radius) !important;
 }
 
 /* ------ Dropdown ------ */
@@ -208,7 +208,7 @@
   background: var(--kde-view-background) !important;
   border: 1px solid var(--kde-border-color) !important;
   border-top: none !important;
-  border-radius: 0 0 var(--kde-urlbar-radius) var(--kde-urlbar-radius) !important;
+  border-radius: 0 0 var(--urlbar-inner-border-radius) var(--urlbar-inner-border-radius) !important;
   box-shadow: none !important;
 
   /* Move the dropdown up to touch the urlbar */
