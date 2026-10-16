@@ -261,83 +261,74 @@ menu {
 }
 
 /* ===============================================================
- * Style buttons (and bookmark items, which I count as buttons)
+ * Toolbar buttons
+ *
+ * .toolbarbutton-1 is the marker for "real" toolbar buttons.
+ * Bookmark items are toolbarbuttons too, but different class.
+ *
+ * Downloads button is unique, icon lives in a stack of boxes.
  * =============================================================== */
 
-/* Shared for all states */
-.toolbarbutton-1 .toolbarbutton-icon,
-#downloads-button > stack:nth-child(1) {
-  border: 1px solid transparent !important;  /* Persistent border for spacing */
+/* Shared look */
+:where(.toolbarbutton-1:not(#downloads-button)) .toolbarbutton-icon,
+#downloads-button .toolbarbutton-badge-stack {
+  /* Persistent transparent border keeps layout stable */
+  border: 1px solid transparent !important; 
+  background: none !important;
+  box-shadow: none !important;
+}
+
+:where(.toolbarbutton-1:not(#downloads-button)) .toolbarbutton-icon {
   padding: 6px !important;
-  background: none !important;
-  box-shadow: none !important;
-}
-#PlacesToolbarItems .bookmark-item {
-  border: 1px solid transparent !important;  /* Persistent border for spacing */
-  background: none !important;
-  box-shadow: none !important;
-  /* Adjust padding */
-  padding-top: 1px !important;
-  padding-bottom: 1px !important;
-  padding-left: 2px !important;
-  padding-right: 2px !important;
 }
 
-/* When hovered, clicked, or active: add colored border */
-:is(
-  .toolbarbutton-1,
-  stack:nth-child(1)
-):is(
-  :hover,
-  :focus,
-  :active,
-  [open],
-  [selected]
-  [checked]
-  [aria-pressed="true"]
+/* Hover / focus / open / pressed: colored border */
+:where(.toolbarbutton-1:not(#downloads-button)):is(
+  :hover, :focus, :active, [open], [selected], [checked], [aria-pressed="true"]
 ) .toolbarbutton-icon,
-#downloads-button:hover > stack:nth-child(1),
-#downloads-button:focus > stack:nth-child(1),
-#downloads-button[open] > stack:nth-child(1),
-#PlacesToolbarItems .bookmark-item:hover,
-#PlacesToolbarItems .bookmark-item:focus,
-#PlacesToolbarItems .bookmark-item:active {
-  border: 1px solid var(--kde-accent) !important;
+#downloads-button:is(:hover, :focus, :active, [open]) .toolbarbutton-badge-stack {
+  border-color: var(--kde-accent) !important;
 }
 
-/* When clicked or active: add fill color */
-:is(
-  .toolbarbutton-1,
-  stack:nth-child(1)
-):is(
-  :focus,
-  :active,
-  [open],
-  [selected]
+/* Focus / active / open: fill */
+:where(.toolbarbutton-1:not(#downloads-button)):is(
+  :focus, :active, [open], [selected]
 ) .toolbarbutton-icon,
-#PlacesToolbarItems .bookmark-item:focus,
-#PlacesToolbarItems .bookmark-item:active,
-#downloads-button:focus > stack:nth-child(1),
-#downloads-button[open] > stack:nth-child(1) {
+#downloads-button:is(:focus, :active, [open]) .toolbarbutton-badge-stack {
   background: var(--kde-hover-decoration) !important;
 }
 
 /* ===================================
- * Workarounds for stubborn buttons
+ * Stubborn button exceptions
  * =================================== */
 
-/* Pinned addons buttons */
+/* Downloads button: size the stack, let the four layers fill it */
+#downloads-button .toolbarbutton-badge-stack {
+  height: 32px !important;
+  width: 32px !important;
+  padding: 0 !important;
+}
+#downloads-indicator-anchor,
+#downloads-indicator-progress-outer,
+#downloads-indicator-start-box,
+#downloads-indicator-finish-box {
+  width: 100% !important;
+  height: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+#downloads-indicator-icon,
+#downloads-indicator-start-image,
+#downloads-indicator-finish-image {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Pinned extension buttons */
 :is(
   .toolbarbutton-1[id$="-browser-action"],
-  .toolbarbutton-1[id$="-BAP"],
-  #PanelUI-menu-button,
-  #downloads-button
-) stack:nth-child(1) {
-  background: none !important;
-  box-shadow: none !important;
-}
-.toolbarbutton-1[id$="-browser-action"] .toolbarbutton-icon,
-.toolbarbutton-1[id$="-BAP"] .toolbarbutton-icon {
+  .toolbarbutton-1[id$="-BAP"]
+) .toolbarbutton-icon {
   height: 32px !important;
   width: 32px !important;
   padding: 6px !important;
@@ -345,6 +336,17 @@ menu {
   border-radius: var(--button-border-radius) !important;
 }
 
+/* Stubborn backgrounds on the wrapper stack */
+:is(
+  .toolbarbutton-1[id$="-browser-action"],
+  .toolbarbutton-1[id$="-BAP"],
+  #PanelUI-menu-button
+) .toolbarbutton-badge-stack {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Hamburger menu */
 #PanelUI-menu-button {
   margin-right: -8px !important;
 }
@@ -355,23 +357,47 @@ menu {
   border-radius: var(--button-border-radius) !important;
 }
 
-/* Other buttons */
-#downloads-button > stack:nth-child(1),
-#firefox-view-button > image:nth-child(1) {
+/* Firefox View */
+#firefox-view-button .toolbarbutton-icon {
   height: 32px !important;
   width: 32px !important;
-  padding: 6px !important;
 }
 
-/* Dialog buttons */
+
+/* ===================================
+ * Bookmark items (separate on purpose)
+ * =================================== */
+
+#PlacesToolbarItems .bookmark-item {
+  border: 1px solid transparent !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 1px 2px !important;
+}
+#PlacesToolbarItems .bookmark-item:is(:hover, :focus, :active) {
+  border-color: var(--kde-accent) !important;
+}
+#PlacesToolbarItems .bookmark-item:is(:focus, :active) {
+  background: var(--kde-hover-decoration) !important;
+}
+
+
+/* ===================================
+ * Dialog buttons
+ * =================================== */
+
 .dialog-button-box {
-  border: 1px solid transparent !important;  /* Persistent border for spacing */
+  border: 1px solid transparent !important;
   padding: 6px !important;
   background: none !important;
   box-shadow: none !important;
 }
 
-/* Override unified extensions dropdown buttons */
+
+/* ===================================
+ * Unified extensions dropdown
+ * =================================== */
+
 #unified-extensions-area {
   .unified-extensions-item-menu-button {
     border: none !important;
@@ -382,11 +408,10 @@ menu {
     border: 1px solid var(--kde-accent) !important;
     background: transparent !important;
   }
-  toolbarbutton:active >image {
+  toolbarbutton:active > image {
     background: var(--kde-hover-decoration) !important;
   }
 }
-
 /* ===================================
  * Miscellaneous
  * =================================== */
