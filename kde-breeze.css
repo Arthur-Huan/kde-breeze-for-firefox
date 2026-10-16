@@ -46,68 +46,7 @@
 }
 
 /* ==============================
- * Style the navbar and bookmarks bar
- * ============================== */
-
-#nav-bar {
-  background: var(--kde-window-background) !important;
-  min-height: var(--navbar-height) !important;
-  max-height: var(--navbar-height) !important;
-}
-
-#PersonalToolbar {
-  background: var(--kde-window-background) !important;
-}
-
-/* ==============================
- * Style the address bar
- * ============================== */
-
-/* ------ Resting address bar ------ */
-#urlbar-container,
-#urlbar {
-  --urlbar-container-height: var(--navbar-height) !important;
-  --kde-urlbar-radius: var(--border-radius-medium);
-}
-
-#urlbar .urlbar-background {
-  background: var(--kde-view-background) !important;
-  border: 1px solid var(--kde-border-color) !important;
-  border-radius: var(--kde-urlbar-radius) !important;
-  box-shadow: none !important;
-}
-
-/* ------ Open state: keep only the dropdown ------ */
-#urlbar[open] .urlbar-background,
-#urlbar[open] .urlbarView-background {
-  display: none !important;
-}
-
-/* Restore the border around the url bar */
-#urlbar:is([focused], [open], :focus-within) .urlbar-input-container {
-  outline: 1px solid var(--kde-border-color) !important;
-  outline-offset: -1px !important;
-  border-radius: var(--kde-urlbar-radius) !important;
-}
-
-/* ------ Dropdown ------ */
-#urlbar:not([open]) .urlbarView-body-outer {
-  display: none !important;
-}
-
-#urlbar[open] .urlbarView-body-outer {
-  background: var(--kde-view-background) !important;
-  border: 1px solid var(--kde-border-color) !important;
-  border-top: none !important;
-  border-radius: 0 0 var(--kde-urlbar-radius) var(--kde-urlbar-radius) !important;
-  box-shadow: none !important;
-
-  /* Move the dropdown up to touch the urlbar */
-  margin-top: calc(-1 * (var(--navbar-height) - var(--urlbar-height)) / 2) !important;
-}
-
-/* ==============================
- * Style the tabs and tabs bar (horizontal tabs only)
+ * Tabs and tabs bar (horizontal tabs)
  * ============================== */
 
 /* ------ Tabs bar ------ */
@@ -215,49 +154,65 @@
   padding: 0 !important;
 }
 
-/* ====================================================
- * Style menus, including:
- *   Application menu (hamburger menu)
- *   Right-click menu (context menu)
- *   Dropdown menus from navbar icons (e.g. library)
- * ==================================================== */
+/* ==============================
+ * Navbar and bookmarks bar
+ * ============================== */
 
-/* Shared for all states */
-.panel-subview-body > toolbarbutton,
-.subviewbutton,
-.menu-iconic,
-menuitem,
-menu {
-  border: 1px solid transparent !important; /* Persistent border for spacing */
-  padding-block: 4px !important;  /* Vertical padding */
-  padding-inline: 8px !important; /* Horizontal padding */
-  margin-block: 0px !important;   /* Vertical margin */
+#nav-bar {
+  background: var(--kde-window-background) !important;
+  min-height: var(--navbar-height) !important;
+  max-height: var(--navbar-height) !important;
 }
 
-/* Style hovered, active, or selected */
-:is(
-  .panel-subview-body > toolbarbutton,
-  .subviewbutton,
-  .menu-iconic,
-  menuitem,
-  menu
-):is(
-  :hover,
-  :focus,
-  :active,
-  [open],
-  [selected]
-) {
-  border: 1px solid var(--kde-accent) !important;
-  background-color: var(--kde-hover-decoration) !important;
+#PersonalToolbar {
+  background: var(--kde-window-background) !important;
 }
 
-#context-navigation {
-  height: 32px !important;
+/* ==============================
+ * Address bar (urlbar)
+ * ============================== */
+
+/* ------ Resting address bar ------ */
+#urlbar-container,
+#urlbar {
+  --urlbar-container-height: var(--navbar-height) !important;
+  --kde-urlbar-radius: var(--border-radius-medium);
 }
 
-#appMenu-fxa-status2 {
-  height: 32px !important;
+#urlbar .urlbar-background {
+  background: var(--kde-view-background) !important;
+  border: 1px solid var(--kde-border-color) !important;
+  border-radius: var(--kde-urlbar-radius) !important;
+  box-shadow: none !important;
+}
+
+/* ------ Open state: keep only the dropdown ------ */
+#urlbar[open] .urlbar-background,
+#urlbar[open] .urlbarView-background {
+  display: none !important;
+}
+
+/* Restore the border around the url bar */
+#urlbar:is([focused], [open], :focus-within) .urlbar-input-container {
+  outline: 1px solid var(--kde-border-color) !important;
+  outline-offset: -1px !important;
+  border-radius: var(--kde-urlbar-radius) !important;
+}
+
+/* ------ Dropdown ------ */
+#urlbar:not([open]) .urlbarView-body-outer {
+  display: none !important;
+}
+
+#urlbar[open] .urlbarView-body-outer {
+  background: var(--kde-view-background) !important;
+  border: 1px solid var(--kde-border-color) !important;
+  border-top: none !important;
+  border-radius: 0 0 var(--kde-urlbar-radius) var(--kde-urlbar-radius) !important;
+  box-shadow: none !important;
+
+  /* Move the dropdown up to touch the urlbar */
+  margin-top: calc(-1 * (var(--navbar-height) - var(--urlbar-height)) / 2) !important;
 }
 
 /* ===============================================================
@@ -298,9 +253,7 @@ menu {
   background: var(--kde-hover-decoration) !important;
 }
 
-/* ===================================
- * Stubborn button exceptions
- * =================================== */
+/* ------ Stubborn button exceptions ------ */
 
 /* Downloads button: size the stack, let the four layers fill it */
 #downloads-button .toolbarbutton-badge-stack {
@@ -363,10 +316,7 @@ menu {
   width: 32px !important;
 }
 
-
-/* ===================================
- * Bookmark items (separate on purpose)
- * =================================== */
+/* ------ Bookmark items ------ */
 
 #PlacesToolbarItems .bookmark-item {
   border: 1px solid transparent !important;
@@ -381,6 +331,50 @@ menu {
   background: var(--kde-hover-decoration) !important;
 }
 
+/* ====================================================
+ * Menus, including:
+ *   Application menu (hamburger menu)
+ *   Right-click menu (context menu)
+ *   Dropdown menus from navbar icons (e.g. library)
+ * ==================================================== */
+
+/* Shared look */
+.panel-subview-body > toolbarbutton,
+.subviewbutton,
+.menu-iconic,
+menuitem,
+menu {
+  border: 1px solid transparent !important; /* Persistent border for spacing */
+  padding-block: 4px !important;  /* Vertical padding */
+  padding-inline: 8px !important; /* Horizontal padding */
+  margin-block: 0px !important;   /* Vertical margin */
+}
+
+/* Style hovered, active, or selected */
+:is(
+  .panel-subview-body > toolbarbutton,
+  .subviewbutton,
+  .menu-iconic,
+  menuitem,
+  menu
+):is(
+  :hover,
+  :focus,
+  :active,
+  [open],
+  [selected]
+) {
+  border: 1px solid var(--kde-accent) !important;
+  background-color: var(--kde-hover-decoration) !important;
+}
+
+#context-navigation {
+height: 32px !important;
+}
+
+#appMenu-fxa-status2 {
+height: 32px !important;
+}
 
 /* ===================================
  * Dialog buttons
@@ -412,6 +406,7 @@ menu {
     background: var(--kde-hover-decoration) !important;
   }
 }
+
 /* ===================================
  * Miscellaneous
  * =================================== */
