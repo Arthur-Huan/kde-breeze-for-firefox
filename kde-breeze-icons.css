@@ -167,7 +167,7 @@
         list-style-image: url("breeze-icons/22/im-user.svg") !important;
     }
 
-    #downloads-button .toolbarbutton-icon {
+    #downloads-indicator-icon {
         list-style-image: url("breeze-icons/22/edit-download.svg") !important;
     }
 
@@ -384,7 +384,7 @@
         list-style-image: url("breeze-dark-icons/22/im-user.svg") !important;
     }
 
-    #downloads-button .toolbarbutton-icon {
+    #downloads-indicator-icon {
         list-style-image: url("breeze-dark-icons/22/edit-download.svg") !important;
     }
 
