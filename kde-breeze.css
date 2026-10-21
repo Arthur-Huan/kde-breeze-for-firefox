@@ -199,12 +199,8 @@
   border-radius: var(--urlbar-inner-border-radius) !important;
 }
 
-/* ------ Dropdown ------ */
-#urlbar:not([open]) .urlbarView-body-outer {
-  display: none !important;
-}
-
-#urlbar[open] .urlbarView-body-outer {
+/* ------ Search dropdown ------ */
+#urlbar-results {
   background: var(--kde-view-background) !important;
   border: 1px solid var(--kde-border-color) !important;
   border-top: none !important;
